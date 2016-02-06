@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.css" />
+    <link rel="stylesheet" href="bower_components/materialize/bin/materialize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="webApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!-- <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+
+            <a class="navbar-brand" href="#/">web</a>
+          </div>
+
+          <div class="collapse">
+
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#/">Home</a></li>
+              <li><a ng-href="#/about">About</a></li>
+              <li><a ng-href="#/">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+    <div ng-controller="NavCtrl">
+      <div class="row white-text">
+        <div class="col s12">
+          
+          <div class="col s1" style="padding-top:5px;margin-left:-15px">
+            <a class="btn-floating btn-flat waves-effect waves-light btnMenu" ng-click="abrirModal('menu')">
+              <i class="right ion-navicon"></i>
+            </a>
+          </div>
+
+          <div class="co s1 right" style="padding-top:5px">
+            <a ng-show="!currentUser" class="right  btn-floating btn-flat waves-effect waves-light btnMenu tooltipped" ng-click="abrirModal('ingresar')" data-position="bottom" data-delay="50" data-tooltip="Ingresar">
+              <i class="right ion-log-in"></i>
+            </a>
+            <a ng-show="currentUser" class="right  btn-floating btn-flat waves-effect waves-light btnMenu tooltipped" ng-click="clientLogout()" data-position="bottom" data-delay="50" data-tooltip="Salir">
+              <i class="right ion-log-out"></i>
+            </a>
+          </div>
+          
+        </div> 
+      </div>
+      <!-- Modal Login -->
+      <div id="ingresar" class="modal">
+        <div class="modal-content">
+          <h4>Ingresar</h4>
+          <p>Ingrese sus credenciales.</p>
+          <form name="loginCliente" ng-submit="clientLogin(client)" novalidate>
+
+            <div class="input-field">
+              <input id="email" type="email" ng-model="client.email" required>
+              <label data-error="invalido" for="email">Email</label>
+            </div>
+            
+            <div class="input-field">
+              <input id="password" type="password" ng-model="client.password" required>
+              <label for="password">Contraseña</label>
+            </div>      
+            
+            <div class="input-field">
+              <button class="btn waves-effect waves-light btnFull bg-principal" type="submit" ng-disabled="loginCliente.$invalid">Ingresar
+              </button>
+            </div>
+
+            <div class="input-field">
+              <a class="btn waves-effect waves-light btnFull bg-principal" href="#/clientes" ng-click="cerrarModal()">Registrarse</a >
+            </div>
+          
+          </form>
+          
+        </div>
+        <div class="modal-footer">
+          <a class="right modal-close btn-floating btn-flat waves-effect waves-light white">
+            <i class="ion-android-close black-text"></i>
+          </a>
+        </div>
+      </div>
+      <div id="menu" class="modal">
+        <div class="modal-content">
+          <a class="modal-close modal-close" ui-sref="inicio">inicio</a>
+          <a class="modal-close modal-close" ui-sref="servicios">servicios</a>
+          <a class="modal-close modal-close" ui-sref="clientes">clientes</a>
+          <a class="modal-close modal-close" ui-sref="privado">privado</a>
+        </div>
+        <div class="modal-footer">
+          <a class="right modal-close modal-close btn-floating btn-flat waves-effect waves-light btnMenu">
+            <i class="right ion-android-close"></i>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+    
+
+    <div ui-view></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script> -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/materialize/bin/materialize.js"></script>
+    <script src="bower_components/angular-materialize/src/angular-materialize.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/nav.js"></script>
+        <script src="scripts/controllers/inicio.js"></script>
+        <script src="scripts/controllers/clientes.js"></script>
+        <script src="scripts/controllers/servicios.js"></script>
+        <script src="scripts/controllers/privado.js"></script>
+
+        <script src="scripts/services/authentication.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
