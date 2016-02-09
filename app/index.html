@@ -23,42 +23,31 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <!-- <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <a class="navbar-brand" href="#/">web</a>
-          </div>
-
-          <div class="collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    
-    <div ng-controller="NavCtrl">
+   
+    <div class="navegador" ng-controller="NavCtrl">
       <div class="row white-text">
         <div class="col s12">
-          
-          <div class="col s1" style="padding-top:5px;margin-left:-15px">
-            <a class="btn-floating btn-flat waves-effect waves-light btnMenu" ng-click="abrirModal('menu')">
-              <i class="right ion-navicon"></i>
-            </a>
-          </div>
 
-          <div class="co s1 right" style="padding-top:5px">
-            <a ng-show="!currentUser" class="right  btn-floating btn-flat waves-effect waves-light btnMenu tooltipped" ng-click="abrirModal('ingresar')" data-position="bottom" data-delay="50" data-tooltip="Ingresar">
-              <i class="right ion-log-in"></i>
+          <div class="tactil">
+            <div ng-show="btn" id="donde" class="seccion donde">{{PAGE | uppercase}}</div>
+            <div ng-show="!btn" id="cerrar" class="seccion cerrar">CERRAR</div>
+            <div ng-show="btn" id="btnMenu" class="right btnMenu">
+              <a class="btn-floating btn-large waves-effect waves-light black" ng-click="abrirModal('menu')">
+                <i class="right ion-navicon blue-text"></i>
+              </a>
+            </div>
+            <div ng-show="!btn" id="btnCerrar" class="left btnCerrar">
+              <a class="btn-floating btn-large waves-effect waves-light black" ng-click="cerrarModal()">
+                <i class="ion-android-close blue-text"></i>
+              </a>
+            </div>
+          </div>
+          <div ng-show="btn" id="btnIngresar">
+            <a ng-show="!currentUser" class="btn-floating btn-large waves-effect waves-light tooltipped black" ng-click="abrirModal('ingresar')" data-position="bottom" data-delay="50" data-tooltip="Ingresar">
+              <i class="right ion-log-in blue-text"></i>
             </a>
-            <a ng-show="currentUser" class="right  btn-floating btn-flat waves-effect waves-light btnMenu tooltipped" ng-click="clientLogout()" data-position="bottom" data-delay="50" data-tooltip="Salir">
-              <i class="right ion-log-out"></i>
+            <a ng-show="currentUser" class="btn-floating btn-large waves-effect waves-light tooltipped black" ng-click="clientLogout()" data-position="bottom" data-delay="50" data-tooltip="Salir">
+              <i class="right ion-log-out blue-text"></i>
             </a>
           </div>
           
@@ -93,30 +82,20 @@
           </form>
           
         </div>
-        <div class="modal-footer">
-          <a class="right modal-close btn-floating btn-flat waves-effect waves-light white">
-            <i class="ion-android-close black-text"></i>
-          </a>
-        </div>
       </div>
       <div id="menu" class="modal">
         <div class="modal-content">
-          <a class="modal-close modal-close" ui-sref="inicio">inicio</a>
-          <a class="modal-close modal-close" ui-sref="servicios">servicios</a>
-          <a class="modal-close modal-close" ui-sref="clientes">clientes</a>
-          <a class="modal-close modal-close" ui-sref="privado">privado</a>
-        </div>
-        <div class="modal-footer">
-          <a class="right modal-close modal-close btn-floating btn-flat waves-effect waves-light btnMenu">
-            <i class="right ion-android-close"></i>
-          </a>
-        </div>
-        
+          <a class="modal-close modal-close" ng-click="cerrarModal()" ui-sref="inicio">INICIO</a>
+          <a class="modal-close modal-close" ng-click="cerrarModal()" ui-sref="servicios">SERVICIOS</a>
+          <a class="modal-close modal-close" ng-click="cerrarModal()" ui-sref="clientes">CLIENTES</a>
+          <a ng-show="currentUser" class="modal-close modal-close" ng-click="cerrarModal()" ui-sref="privado">PRIVADO</a>
+        </div>      
       </div>
+
+      <div id="cerrarAllModals" ng-click="cerrarModal()"></div>
     </div>
     
-
-    <div ui-view class="lado" ></div>
+    <div ui-view ></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID
      <script>

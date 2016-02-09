@@ -61,30 +61,6 @@ html {
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
-.lado {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-.lado.ng-enter,
-.lado.ng-leave {
-  -webkit-transition: left 1s ease;
-  transition: left 1s ease;
-}
-.lado.ng-enter {
-  left: 100%;
-}
-.lado.ng-enter-active {
-  left: 0;
-}
-.lado.ng-leave {
-  left: 0;
-}
-.lado.ng-leave-active {
-  left: -100%;
-}
 .tabs .indicator {
   background-color: #00aeef !important;
 }
@@ -104,17 +80,121 @@ input:-webkit-autofill {
   background-color: transparent;
 }
 .navegador {
-  display: none;
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  z-index: 1020;
 }
-.btnMenu:hover {
-  background-color: rgba(255,255,255,0.2) !important;
+.navegador .seccion {
+  position: absolute;
+  line-height: 58px;
+}
+.navegador .donde {
+  left: 30px;
+}
+.navegador .cerrar {
+  right: 30px;
+}
+.navegador .tactil {
+  width: 170px;
+  height: 56px;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  border-radius: 28px;
+  -o-border-radius: 28px;
+  -ms-border-radius: 28px;
+  -moz-border-radius: 28px;
+  -webkit-border-radius: 28px;
+}
+.navegador .tactil:hover {
+  color: #00aeef !important;
+}
+#btnMenu {
+  transition: 0.4s all ease-out;
+  position: absolute;
+  right: 0px;
+}
+#btnMenu.ng-hide-add,
+#btnMenu.ng-hide-remove {
+  display: block !important;
+}
+#btnMenu.ng-hide-remove,
+#btnMenu.ng-hide-add.ng-hide-add-active {
+  right: 60px;
+  opacity: 0;
+}
+#btnCerrar {
+  transition: 0.4s all ease-out;
+  position: absolute;
+  left: 0px;
+  opacity: 1;
+}
+#btnCerrar.ng-hide-add,
+#btnCerrar.ng-hide-remove {
+  display: block !important;
+}
+#btnCerrar.ng-hide-remove,
+#btnCerrar.ng-hide-add.ng-hide-add-active {
+  left: 60px;
+  opacity: 0;
+}
+#donde {
+  transition: 0.3s all ease-out;
+}
+#donde.ng-hide-add,
+#donde.ng-hide-remove {
+  display: block !important;
+}
+#donde.ng-hide-remove,
+#donde.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+}
+#cerrar {
+  transition: 0.3s all ease-out;
+}
+#cerrar.ng-hide-add,
+#cerrar.ng-hide-remove {
+  display: block !important;
+}
+#cerrar.ng-hide-remove,
+#cerrar.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+}
+#btnIngresar {
+  position: absolute;
+  top: 50px;
+  right: 40px;
+}
+#btnIngresar {
+  transition: 0.3s all ease-out;
+}
+#btnIngresar.ng-hide-add,
+#btnIngresar.ng-hide-remove {
+  display: block !important;
+}
+#btnIngresar.ng-hide-remove,
+#btnIngresar.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+}
+#cerrarAllModals {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  top: 0;
 }
 @media screen and (max-width: 800px) {
-  .menu {
-    display: none;
+  .navegador .tactil {
+    top: 10px;
+    right: 70px;
   }
-  .navegador {
-    display: block;
+  #btnIngresar {
+    top: 10px;
+    right: 10px;
   }
 }
 /*

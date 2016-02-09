@@ -19,9 +19,97 @@
 		background-color transparent
 	
 .navegador
-	display none
+	display block
+	position fixed
+	top 0
+	width 100%
+	height 0%
+	z-index 1020
+	//background-color red
 	
-.btnMenu:hover
-	background-color alpha(blanco,20%) !important
+	& .seccion 
+		position absolute
+		line-height 58px
 		
-/* ENCABEZADO FINAL
+	& .donde
+		left 30px
+		
+	& .cerrar 
+		right 30px
+	
+	& .tactil
+		width 170px
+		height 56px
+		background-color alpha(negro,50%)
+		position absolute
+		top 50px
+		right 100px
+		bordesCirculares(28px)
+		
+	& .tactil:hover
+		color principal !important
+	
+#btnMenu 
+	transition  .4s all ease-out
+	position absolute
+	right 0px
+
+#btnMenu.ng-hide-add, #btnMenu.ng-hide-remove
+	display  block !important 
+
+#btnMenu.ng-hide-remove, #btnMenu.ng-hide-add.ng-hide-add-active
+	right  60px
+	opacity  0
+	
+#btnCerrar 
+	transition  .4s all ease-out
+	position absolute
+	left 0px
+	opacity  1
+
+#btnCerrar.ng-hide-add, #btnCerrar.ng-hide-remove
+	display  block !important 
+
+#btnCerrar.ng-hide-remove, #btnCerrar.ng-hide-add.ng-hide-add-active
+	left  60px
+	opacity  0
+	
+#donde 
+	transition  .3s all ease-out
+
+#donde.ng-hide-add, #donde.ng-hide-remove
+	display  block !important 
+
+#donde.ng-hide-remove, #donde.ng-hide-add.ng-hide-add-active
+	opacity  0
+	
+#cerrar 
+	transition  .3s all ease-out
+	
+#cerrar.ng-hide-add, #cerrar.ng-hide-remove
+	display  block !important 
+
+#cerrar.ng-hide-remove, #cerrar.ng-hide-add.ng-hide-add-active
+	opacity  0
+
+#btnIngresar
+	position absolute
+	top 50px
+	right 40px
+	
+#btnIngresar 
+	transition  .3s all ease-out
+
+#btnIngresar.ng-hide-add, #btnIngresar.ng-hide-remove
+	display  block !important 
+
+#btnIngresar.ng-hide-remove, #btnIngresar.ng-hide-add.ng-hide-add-active
+	opacity  0
+
+#cerrarAllModals
+	width 100%
+	height 100%
+	position absolute
+	display none
+	//background-color red
+	top 0
