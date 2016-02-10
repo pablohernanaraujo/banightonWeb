@@ -10,6 +10,8 @@ html {
   background-color: #0d0d0d;
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
 }
 .sombra1 {
   text-shadow: 0px 1px 2px #000;
@@ -23,6 +25,12 @@ html {
 }
 .texto-blanco {
   color: rgba(255,255,255,0.9) !important;
+}
+.texto-gris {
+  color: rgba(122,122,122,0.9) !important;
+}
+.texto-gris-2 {
+  color: rgba(122,122,122,0.3) !important;
 }
 .texto-rosa {
   color: rgba(161,58,85,0.8) !important;
@@ -61,8 +69,13 @@ html {
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
-.tabs .indicator {
-  background-color: #00aeef !important;
+.lean-overlay {
+  opacity: 0.8 !important;
+}
+#logo {
+  position: absolute;
+  top: 45px;
+  left: 30px;
 }
 #menu {
   color: #fff;
@@ -84,7 +97,7 @@ input:-webkit-autofill {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 0%;
+  height: 1%;
   z-index: 1020;
 }
 .navegador .seccion {
@@ -114,7 +127,7 @@ input:-webkit-autofill {
   color: #00aeef !important;
 }
 #btnMenu {
-  transition: 0.4s all ease-out;
+  transition: 0.4s opacity ease-out, 0.4s right ease-out;
   position: absolute;
   right: 0px;
 }
@@ -128,7 +141,7 @@ input:-webkit-autofill {
   opacity: 0;
 }
 #btnCerrar {
-  transition: 0.4s all ease-out;
+  transition: 0.4s opacity ease-out, 0.4s left ease-out;
   position: absolute;
   left: 0px;
   opacity: 1;
@@ -143,7 +156,7 @@ input:-webkit-autofill {
   opacity: 0;
 }
 #donde {
-  transition: 0.3s all ease-out;
+  transition: 0.3s opacity ease-out;
 }
 #donde.ng-hide-add,
 #donde.ng-hide-remove {
@@ -154,7 +167,7 @@ input:-webkit-autofill {
   opacity: 0;
 }
 #cerrar {
-  transition: 0.3s all ease-out;
+  transition: 0.3s opacity ease-out;
 }
 #cerrar.ng-hide-add,
 #cerrar.ng-hide-remove {
@@ -170,7 +183,7 @@ input:-webkit-autofill {
   right: 40px;
 }
 #btnIngresar {
-  transition: 0.3s all ease-out;
+  transition: 0.3s opacity ease-out;
 }
 #btnIngresar.ng-hide-add,
 #btnIngresar.ng-hide-remove {
@@ -187,14 +200,37 @@ input:-webkit-autofill {
   display: none;
   top: 0;
 }
+.mensaje {
+  width: 100%;
+  height: 20px;
+}
+.socialMedia {
+  width: 100%;
+  height: 70px;
+  margin-top: 20px;
+}
+.socialMedia a:hover {
+  background-color: rgba(0,0,0,0.4);
+}
+.socialMedia a:hover > i {
+  color: #00aeef;
+}
+.separador {
+  margin: 10px;
+}
 @media screen and (max-width: 800px) {
   .navegador .tactil {
     top: 10px;
     right: 70px;
+    position: absolute;
   }
   #btnIngresar {
     top: 10px;
     right: 10px;
+  }
+  #logo {
+    top: 5px;
+    left: 10px;
   }
 }
 /*

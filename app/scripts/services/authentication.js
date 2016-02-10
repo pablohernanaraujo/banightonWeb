@@ -30,7 +30,13 @@ angular.module('webApp')
                     $rootScope.algo = regUser.uid;
                     $rootScope.dataLoading = false;
     			}).catch(function(error){
-    				$rootScope.message = error.message;
+    				 if(error.message === 'The specified user does not exist.'){
+                        $rootScope.message = 'Usuario inexistente.';
+                    }else if(error.message === 'The specified password is incorrect.'){
+                        $rootScope.message = 'Contraseña incorrecta.';
+                    }else{
+                        $rootScope.message = error.message;
+                    }
                     $rootScope.dataLoading = false;
     			});
     		},

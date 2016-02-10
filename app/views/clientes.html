@@ -1,4 +1,77 @@
-<div class="row">
-  <img src="images/teclado.jpg" alt="">
+<div class="row" style="overflow-x:hidden;margin: 0; background: white">
+  <img ng-src="{{imagenClientes}}" alt="" width="100%">
 </div>
-<div class="row" style="height:800px"></div>
+<div class="row" style="background:white;padding: 50px;margin: 0px">
+	<div class="container">
+		<div class="col s12">
+		    <h2 class="center-align">Registrarse</h2>
+		    <p class="center-align" style="font-size: 17px">Todos los campos son obligatorios.</p>
+
+		    <div class="mensaje">
+	            <div id="mensaje" class="center-align red-text">{{message}}</div>
+	            <div ng-show="dataLoading" class="center-align texto-principal">Conectando...</div>
+	        </div>
+	            
+		</div>
+
+		<form name="formularioCliente" novalidate>
+
+			<div class="col s12 m2">
+				<div class="input-field">
+				    <p style="color:rgba(0,0,0,.5);font-size:14px">Seleccione una opción.</p>
+					<p>
+				        <input ng-model="client.client" type="checkbox" id="disco" ng-true-value="'disco'" ng-false-value="''" >
+				        <label for="disco">Disco</label>
+				    </p>
+				    <p>
+				        <input ng-model="client.client" type="checkbox" id="dj" ng-true-value="'dj'" ng-false-value="''" >
+				        <label for="dj">Dj</label>
+				    </p>
+				</div>
+			</div>
+
+
+			<div class="col s12 m5">
+				<div class="input-field">
+					<input id="email" type="email" class="validate" ng-model="client.email" required>
+	      			<label data-error="invalido" for="email">Email</label>
+				</div>
+				
+				
+				<div class="input-field">
+					<input id="firstName" type="text" ng-model="client.firstname" required>
+	      			<label for="firstName">Nombre</label>
+				</div>
+			</div>
+			<div class="col s12 m5">
+				<div class="input-field">
+					<input id="password" type="password" ng-model="client.password" required>
+	      			<label for="password">Contraseña</label>
+				</div>
+				<div class="input-field">
+					<input id="lastName" type="text" ng-model="client.lastname" required>
+	      			<label for="lastName">Apellido</label>
+				</div>
+			</div>
+			
+			<div class="col s12 m5 offset-m7">
+				
+				<div class="input-field">
+					<button class="btn waves-effect waves-light btnFull bg-principal" ng-click="register(client)" ng-disabled="formularioCliente.$invalid">Registrarse
+				    </button>
+				</div>
+				<div ng-show="dataLoading">
+		            <div class="progress blue lighten-4">
+		            	<div class="indeterminate bg-principal"></div>
+		            </div> 
+		        </div>
+
+			</div>
+			
+		</form>
+
+	</div>
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="./images/gente.jpg"></div>
+</div>
