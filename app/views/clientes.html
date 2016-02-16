@@ -4,8 +4,8 @@
 <div class="row" style="background:white;padding: 50px;margin: 0px">
 	<div class="container">
 		<div class="col s12">
-		    <h2 class="center-align">Registrarse</h2>
-		    <p class="center-align" style="font-size: 17px">Todos los campos son obligatorios.</p>
+		    <h2 class="centrar-div">Registrarse</h2>
+		    <p class="centrar-div" style="font-size: 17px">Todos los campos son obligatorios.</p>
 
 		    <div class="mensaje">
 	            <div id="mensaje" class="center-align red-text">{{message}}</div>
@@ -16,7 +16,7 @@
 
 		<form name="formularioCliente" novalidate>
 
-			<div class="col s12 m2">
+			<div class="col s12 m12 l2">
 				<div class="input-field">
 				    <p style="color:rgba(0,0,0,.5);font-size:14px">Seleccione una opción.</p>
 					<p>
@@ -31,7 +31,7 @@
 			</div>
 
 
-			<div class="col s12 m5">
+			<div class="col s12 m12 l5">
 				<div class="input-field">
 					<input id="email" type="email" class="validate" ng-model="client.email" required>
 	      			<label data-error="invalido" for="email">Email</label>
@@ -43,7 +43,7 @@
 	      			<label for="firstName">Nombre</label>
 				</div>
 			</div>
-			<div class="col s12 m5">
+			<div class="col s12 m12 l5">
 				<div class="input-field">
 					<input id="password" type="password" ng-model="client.password" required>
 	      			<label for="password">Contraseña</label>
@@ -60,11 +60,6 @@
 					<button class="btn waves-effect waves-light btnFull bg-principal" ng-click="register(client)" ng-disabled="formularioCliente.$invalid">Registrarse
 				    </button>
 				</div>
-				<div ng-show="dataLoading">
-		            <div class="progress blue lighten-4">
-		            	<div class="indeterminate bg-principal"></div>
-		            </div> 
-		        </div>
 
 			</div>
 			

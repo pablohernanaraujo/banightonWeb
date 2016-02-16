@@ -60,8 +60,7 @@ angular.module('webApp')
         }
         if(client.client === 'disco' || client.client === 'dj'){
             $rootScope.message = '';
-            //Authentication.register($scope.client);
-            console.log(client);
+            Authentication.register($scope.client);
         }
       };
 

@@ -10,13 +10,18 @@ angular.module('webApp')
     	var auth = $firebaseAuth(ref);
 
     	auth.$onAuth(function(authUser){
+            
     		if(authUser){
+                
     			var userRef = new Firebase(fire.clients + '/clients/' + authUser.uid);
     			var userObj = $firebaseObject(userRef);
     			$rootScope.currentUser = userObj;
+                $rootScope.algo = userObj.$id;
+
     		}else{
     			$rootScope.currentUser = '';
     		}
+            
     	});
 
     	return {
@@ -49,7 +54,7 @@ angular.module('webApp')
     		},
 
     		requireAuth: function(){
-    			return auth.$requireAuth();
+    			return auth.$requireAuth(); 
     		},
 
     		register: function(user){

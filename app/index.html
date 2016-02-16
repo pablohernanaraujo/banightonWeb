@@ -2,9 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>banighton</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsDNAwAYh8pbarPkuU1vgQqZNSzShl0XE&amp;libraries=places"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+          
+      $(document).ready(function(){
+
+        new WOW().init();
+
+      });
+
+    </script>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -191,6 +203,7 @@
         <script src="scripts/controllers/privado.js"></script>
 
         <script src="scripts/services/authentication.js"></script>
+        <script src="scripts/services/map.js"></script>
         <!-- endbuild -->
 </body>
 </html>
