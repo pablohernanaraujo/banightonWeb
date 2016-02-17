@@ -6,7 +6,7 @@
 		<div class="col s12 m12 l4">
 			<div class="section">
 			    <h5>Datos Principales</h5>
-			    <p>Stuff</p>
+			    <p>Tus datos principales</p>
 			</div>
 		</div>
 		<div class="col s12 m12 l8">
@@ -42,12 +42,12 @@
 			        		<div class="input-field">
 								<input id="firstName" type="text" ng-model="client.firstname" 
 								ng-change="client.$save()">
-				      			<label class="active" for="firstName">Nombre</label>
+				      			<label ng-class="{active: client.firstname}" for="firstName">Nombre</label>
 							</div>
 							<div class="input-field">
 								<input id="lastName" type="text" ng-model="client.lastname" 
 								ng-change="client.$save()">
-				      			<label class="active" for="lastName">Apellido</label>
+				      			<label ng-class="{active: client.lastname}" for="lastName">Apellido</label>
 							</div>
 			        	</div>	
 			        </div>
@@ -57,21 +57,29 @@
 
 		<div class="col s12 m12 l4">
 			<div class="section">
-			    <h5>Section 1</h5>
-			    <p>Stuff</p>
+			    <h5>Mas discos</h5>
+			    <p>Aca seleccionas para agregar mas discos</p>
 			</div>
 		</div>
-		<div class="col s12 m12 l6">
-			<div class="section">
-			    <h5>Section 1</h5>
-			    <p>Stuff</p>
+		<div class="col s12 m12 l6" style="min-height: 150px">
+			<div class="container">
+				<div class="input-field">
+				    <select>
+				        <option value="" disabled selected>Choose your option</option>
+				        <option value="1">Option 1</option>
+				        <option value="2">Option 2</option>
+				        <option value="3">Option 3</option>
+				    </select>
+				    <label>Materialize Select</label>
+				</div>
 			</div>
 		</div>
 
 		<div class="col s12 m12 l4">
 			<div class="section">
-			    <h5>Section 1</h5>
-			    <p>Stuff</p>
+			    <h5>Datos Especificos</h5>
+			    <p>Datos del Boliche</p>
+			    <div id="map"></div>
 			</div>
 		</div>
 		<div class="col s12 m12 l8">
@@ -115,19 +123,23 @@
 				      			<a class="waves-effect waves-light btn btnFull" 
 				      			ng-click="search()">Buscar</a>
 							</div>
-
-			        		<div id="map"></div>
-
-			        		<div class="input-field">
-								<input  id="address" type="text" ng-model="client.b1.address" disabled="">
+							<div class="input-field">
+								<div class="section">
+								    <h5>{{client.b1.address}}</h5>
+								    <p ng-show="client.b1.address">Si la direccion es correcta ya quedo guardado,&nbsp; en caso contrario genere una nueva busqueda.</p>
+								    <p ng-show="!client.b1.address">Busque su direccion.</p>
+								</div>
+							</div>
+			        		<div class="input-field hide">
+								<input  id="address" type="text" data-ng-model="client.b1.address" disabled>
 				      			<label class="active" for="address">Dirección</label>
 							</div>
-							<div class="input-field">
-								<input  id="latitude" type="text" ng-model="client.b1.latitude" disabled="">
+							<div class="input-field hide">
+								<input  id="latitude" type="text" ng-value="latitude" data-ng-model="client.b1.latitude" disabled>
 				      			<label class="active" for="latitude">Latitud</label>
 							</div>
-							<div class="input-field">
-								<input  id="longitude" type="text" ng-model="client.b1.longitude" disabled="">
+							<div class="input-field hide">
+								<input  id="longitude" type="text" ng-value="longitude" data-ng-model="client.b1.longitude" disabled>
 				      			<label class="active" for="longitude">Longitud</label>
 							</div>
 			        	</div>
@@ -135,7 +147,9 @@
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
-			        	<i class="ion-android-call"></i>{{client.homePhone}}
+			        	<i class="ion-android-call"></i>
+			        	<span ng-show="client.b1.homePhone">{{client.b1.homePhone}}</span>
+			        	<span ng-show="!client.b1.homePhone">Ingrese un telefono</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	
@@ -143,7 +157,9 @@
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
-			        	<i class="ion-android-phone-portrait"></i>{{client.cellPhone}}
+			        	<i class="ion-android-phone-portrait"></i>
+			        	<span ng-show="client.b1.cellPhone">{{client.b1.cellPhone}}</span>
+			        	<span ng-show="!client.b1.cellPhone">Ingrese un celular</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	
@@ -151,7 +167,9 @@
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
-			        	<i class="ion-music-note"></i>{{client.music.a}}
+			        	<i class="ion-music-note"></i>
+			        	<span ng-show="client.b1.music.a">{{client.b1.music.a}}</span>
+			        	<span ng-show="!client.b1.music.a">Ingrese estilo de musica</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	
@@ -192,46 +210,58 @@
 
 		<div class="col s12 m12 l4">
 			<div class="section">
-			    <h5>Datos Principales</h5>
-			    <p>Stuff</p>
+			    <h5>Celular</h5>
+			    <p>Aca va a estar el celular mostrando como quedaria todo</p>
 			</div>
 		</div>
 		<div class="col s12 m12 l8">
 			<ul class="collapsible popout" data-collapsible="accordion">
 			    <li>
-			        <div class="collapsible-header"><i class="ion-image"></i>{{client.logo}}</div>
+			        <div class="collapsible-header"><i class="ion-image"></i>Logo</div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="email" type="email" ng-model="client.email" 
-								ng-change="client.$save()" disabled required>
-				      			<label class="active" for="email">Email</label>
+								<input id="logo" type="text" 
+								 disabled required>
+				      			<label class="active" for="logo">Logo</label>
 							</div>
 						</div>
 			        </div>
 			    </li>
 			    <li>
-			        <div class="collapsible-header"><i class="ion-key"></i>Contraseña</div>
+			        <div class="collapsible-header"><i class="ion-document-text"></i>Texto logo</div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="password" type="password" ng-model="client.password" 
-								ng-change="client.$save()" disabled required>
-				      			<label class="active" for="password">Contraseña</label>
+								<input id="textLogo" type="text" 
+								 disabled required>
+				      			<label class="active" for="textLogo">Texto logo</label>
 							</div>
 						</div>
 			        </div>
 			    </li>
 			    <li>
-			        <div class="collapsible-header"><i class="ion-person"></i>{{client.firstname}} {{client.lastname}}</div>
+			        <div class="collapsible-header"><i class="ion-image"></i>Imagen</div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="firstName" type="text" ng-model="client.firstname" 
-								ng-change="client.$save()">
-				      			<label class="active" for="firstName">Nombre</label>
+								<input id="image" type="text" 
+								 disabled required>
+				      			<label class="active" for="image">Imagen</label>
 							</div>
-			        	</div>	
+						</div>
+			        </div>
+			    </li>
+			    <li>
+			        <div class="collapsible-header"><i class="ion-document-text"></i>Texto imagen</div>
+			        <div class="collapsible-body">
+			        	<div class="container">
+			        		<div class="input-field">
+								<input id="textImage" type="text"
+								 disabled required>
+				      			<label class="active" for="textImage">Texto imagen</label>
+							</div>
+						</div>
 			        </div>
 			    </li>
 		    </ul>

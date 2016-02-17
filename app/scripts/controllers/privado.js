@@ -32,6 +32,8 @@ angular.module('webApp')
       $('.collapsible').collapsible({
         accordion : false 
       });
+      Map.init();
+      //$('select').material_select();
 
       var ancho = $( window ).width();
 
@@ -95,17 +97,13 @@ angular.module('webApp')
                 Map.addMarker(res);
                 $scope.client.b1.address = res.name;
                 $scope.client.b1.latitude = res.geometry.location.lat();
-                $scope.client.b1.longitude = res.geometry.location.lng();
+                $scope.client.b1.longitude= res.geometry.location.lng();
             },
             function(status) { // error
                 $scope.apiError = true;
                 $scope.apiStatus = status;
             }
         );
-    }; 
-
-    $timeout(function() {
-      Map.init();
-    }, 1000);
+    };
   	
   });
