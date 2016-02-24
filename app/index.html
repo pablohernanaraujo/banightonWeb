@@ -47,12 +47,12 @@
             <div ng-show="!btn" id="cerrar" class="seccion cerrar">CERRAR</div>
             <div ng-show="btn" id="btnMenu" class="right btnMenu">
               <a class="btn-floating btn-large waves-effect waves-light black" ng-click="abrirModal('menu')">
-                <i class="right ion-navicon blue-text"></i>
+                <i class="right ion-navicon"></i>
               </a>
             </div>
             <div ng-show="!btn" id="btnCerrar" class="left btnCerrar">
               <a class="btn-floating btn-large waves-effect waves-light black" ng-click="cerrarModal()">
-                <i class="ion-android-close blue-text"></i>
+                <i class="ion-android-close"></i>
               </a>
             </div>
           </div>
@@ -108,7 +108,7 @@
           <div class="divider separador"></div>
           <a class="modal-close modal-close" ng-class="{ seleccionado: PAGE === 'clientes'}" ng-click="cerrarModal()" ui-sref="clientes">CLIENTES</a>
           <div ng-show="currentUser" class="divider separador"></div>
-          <a ng-show="currentUser" ng-class="{ seleccionado: PAGE === 'privado' }" class="modal-close modal-close" ng-click="cerrarModal()" ui-sref="privado">PRIVADO</a>
+          <a ng-show="currentUser" ng-class="{ seleccionado: PAGE === currentUser.user.firstname }" class="modal-close modal-close" ng-click="cerrarModal()" ui-sref="privado">{{currentUser.user.firstname | uppercase}}</a>
           <div class="socialMedia">
             <a class="right btn-floating btn-large btn-flat waves-effect waves-light">
               <i class="right ion-social-instagram"></i>
@@ -139,7 +139,7 @@
               <li><a class="texto-gris" ui-sref="inicio">Inicio</a></li>
               <li><a class="texto-gris" ui-sref="servicios">Servicios</a></li>
               <li><a class="texto-gris" ui-sref="clientes">Clientes</a></li>
-              <li ng-show="currentUser"><a class="texto-gris" ui-sref="privado">Privado</a></li>
+              <li ng-show="currentUser"><a class="texto-gris" ui-sref="privado">{{currentUser.user.firstname | capitalize}}</a></li>
             </ul>
           </div>
           <div class="col s12 m3 right-align">
@@ -204,6 +204,7 @@
 
         <script src="scripts/services/authentication.js"></script>
         <script src="scripts/services/map.js"></script>
+        <script src="scripts/services/capitalize.js"></script>
         <!-- endbuild -->
 </body>
 </html>

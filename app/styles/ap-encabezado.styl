@@ -16,6 +16,10 @@
 		text-align center
 		font-size 40px
 		font-weight 100
+		tra(.3s)
+		
+	& a:hover
+		color principal
 	
 	& .modal-footer
 		background-color transparent
@@ -27,7 +31,6 @@
 	width 100%
 	height 1%
 	z-index 1020
-	//background-color red
 	
 	& .seccion 
 		position absolute
@@ -77,7 +80,7 @@
 	opacity  0
 	
 #donde 
-	transition  .3s opacity ease-out
+	transition  .3s opacity ease-out, .3s color ease-out
 
 #donde.ng-hide-add, #donde.ng-hide-remove
 	display  block !important 
@@ -86,7 +89,7 @@
 	opacity  0
 	
 #cerrar 
-	transition  .3s opacity ease-out
+	transition  .2s opacity ease-out, .3s color ease-out
 	
 #cerrar.ng-hide-add, #cerrar.ng-hide-remove
 	display  block !important 
@@ -100,7 +103,7 @@
 	right 40px
 	
 #btnIngresar 
-	transition  .3s opacity ease-out
+	transition  .2s opacity ease-out
 
 #btnIngresar.ng-hide-add, #btnIngresar.ng-hide-remove
 	display  block !important 
@@ -113,7 +116,6 @@
 	height 100%
 	position absolute
 	display none
-	//background-color red
 	top 0
 	
 .mensaje
@@ -121,7 +123,6 @@
 	height 20px
 	
 .socialMedia
-	//background-color red
 	width 100%
 	height 70px
 	margin-top 20px

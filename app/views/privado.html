@@ -64,13 +64,7 @@
 		<div class="col s12 m12 l6" style="min-height: 150px">
 			<div class="container">
 				<div class="input-field">
-				    <select>
-				        <option value="" disabled selected>Choose your option</option>
-				        <option value="1">Option 1</option>
-				        <option value="2">Option 2</option>
-				        <option value="3">Option 3</option>
-				    </select>
-				    <label>Materialize Select</label>
+				   
 				</div>
 			</div>
 		</div>
@@ -79,7 +73,7 @@
 			<div class="section">
 			    <h5>Datos Especificos</h5>
 			    <p>Datos del Boliche</p>
-			    <div id="map"></div>
+			    <div id="map" class="z-depth-2"></div>
 			</div>
 		</div>
 		<div class="col s12 m12 l8">
@@ -94,16 +88,15 @@
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
-			        	<i class="ion-disc"></i>{{client.b1.bolicheName}}
-			        	<span ng-show="client.b1.bolicheName">{{client.bolicheName}}</span>
-			        	<span ng-show="!client.b1.bolicheName">Ingrese nombre disco</span>
+			        	<i class="ion-disc"></i>{{client.boliches.a.bolicheName}}
+			        	<span ng-show="client.boliches.a.bolicheName">{{client.boliches.a.bolicheName}}</span>
+			        	<span ng-show="!client.boliches.a.bolicheName">Ingrese nombre disco</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="b1bolicheName" type="text" ng-model="client.b1.bolicheName" 
-								ng-change="client.$save()">
-				      			<label class="active" for="b1bolicheName">Disco Nombre</label>
+								<input id="bolicheName" type="text" ng-model="client.boliches.a.bolicheName" >
+				      			<label ng-class="{active: client.boliches.a.bolicheName}" for="bolicheName">Disco Nombre</label>
 							</div>
 			        	</div>
 			        </div>
@@ -111,8 +104,8 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-ios-location"></i>
-			        	<span ng-show="client.b1.address">{{client.b1.address}}</span>
-			        	<span ng-show="!client.b1.address">Ingrese una dirección</span>
+			        	<span ng-show="client.boliches.a.address">{{client.boliches.a.address}}</span>
+			        	<span ng-show="!client.boliches.a.address">Ingrese una dirección</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
@@ -125,21 +118,21 @@
 							</div>
 							<div class="input-field">
 								<div class="section">
-								    <h5>{{client.b1.address}}</h5>
-								    <p ng-show="client.b1.address">Si la direccion es correcta ya quedo guardado,&nbsp; en caso contrario genere una nueva busqueda.</p>
-								    <p ng-show="!client.b1.address">Busque su direccion.</p>
+								    <h5>{{client.boliches.a.address}}</h5>
+								    <p ng-show="client.boliches.a.address">Si la direccion es correcta ya quedo guardado,&nbsp; en caso contrario genere una nueva busqueda.</p>
+								    <p ng-show="!client.boliches.a.address">Busque su direccion.</p>
 								</div>
 							</div>
 			        		<div class="input-field hide">
-								<input  id="address" type="text" data-ng-model="client.b1.address" disabled>
+								<input  id="address" type="text" data-ng-model="client.boliches.a.address" disabled>
 				      			<label class="active" for="address">Dirección</label>
 							</div>
 							<div class="input-field hide">
-								<input  id="latitude" type="text" ng-value="latitude" data-ng-model="client.b1.latitude" disabled>
+								<input  id="latitude" type="text" ng-value="latitude" data-ng-model="client.boliches.a.latitude" disabled>
 				      			<label class="active" for="latitude">Latitud</label>
 							</div>
 							<div class="input-field hide">
-								<input  id="longitude" type="text" ng-value="longitude" data-ng-model="client.b1.longitude" disabled>
+								<input  id="longitude" type="text" ng-value="longitude" data-ng-model="client.boliches.a.longitude" disabled>
 				      			<label class="active" for="longitude">Longitud</label>
 							</div>
 			        	</div>
@@ -148,8 +141,8 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-call"></i>
-			        	<span ng-show="client.b1.homePhone">{{client.b1.homePhone}}</span>
-			        	<span ng-show="!client.b1.homePhone">Ingrese un telefono</span>
+			        	<span ng-show="client.boliches.a.homePhone">{{client.boliches.a.homePhone}}</span>
+			        	<span ng-show="!client.boliches.a.homePhone">Ingrese un telefono</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	
@@ -158,8 +151,8 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-phone-portrait"></i>
-			        	<span ng-show="client.b1.cellPhone">{{client.b1.cellPhone}}</span>
-			        	<span ng-show="!client.b1.cellPhone">Ingrese un celular</span>
+			        	<span ng-show="client.boliches.a.cellPhone">{{client.boliches.a.cellPhone}}</span>
+			        	<span ng-show="!client.boliches.a.cellPhone">Ingrese un celular</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	
@@ -168,8 +161,8 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-music-note"></i>
-			        	<span ng-show="client.b1.music.a">{{client.b1.music.a}}</span>
-			        	<span ng-show="!client.b1.music.a">Ingrese estilo de musica</span>
+			        	<span ng-show="client.boliches.a.music.a">{{client.boliches.a.music.a}}</span>
+			        	<span ng-show="!client.boliches.a.music.a">Ingrese estilo de musica</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	
@@ -178,13 +171,13 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-calendar"></i>
-			        	<span ng-show="client.aniversary">{{client.aniversary}}</span>
-			        	<span ng-show="!client.aniversary">Ingrese su aniversario</span>
+			        	<span ng-show="client.boliches.a.aniversary">{{client.aniversary}}</span>
+			        	<span ng-show="!client.boliches.a.aniversary">Ingrese su aniversario</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container" style="margin-bottom: 20px">
 			        		<div class="input-field">
-								<input placeholder="Ejemplo dd-mm-aaaa" id="aniversary" type="text" ng-model="client.aniversary">
+								<input placeholder="Ejemplo dd-mm-aaaa" id="aniversary" type="text" ng-model="client.boliches.a.aniversary">
 				      			<label class="active" for="aniversary">Aniversario</label>
 							</div>
 			        	</div>
@@ -193,13 +186,13 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-globe"></i>
-			        	<span ng-show="client.website">{{client.website}}</span>
-			        	<span ng-show="!client.website">Ingrese su website</span>
+			        	<span ng-show="client.boliches.a.website">{{client.website}}</span>
+			        	<span ng-show="!client.boliches.a.website">Ingrese su website</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container" style="margin-bottom: 20px">
 			        		<div class="input-field">
-								<input placeholder="Ejemplo http://ejemplo.com" id="website" type="text" ng-model="client.website" >
+								<input placeholder="Ejemplo http://ejemplo.com" id="website" type="text" ng-model="client.boliches.a.website" >
 				      			<label class="active" for="website">Website</label>
 							</div>
 			        	</div>

@@ -10,19 +10,11 @@ angular.module('webApp')
       var obj = $firebaseObject(ref.child('user'));
       
       obj.$bindTo($scope, 'client').then(function() {
-        //console.log($scope.client);  
+        console.log($scope.client.firstname);
+
+        $rootScope.PAGE = $scope.client.firstname; 
       });
     });
-
-    // cliente.$loaded().then(function(){
-
-    //     $scope.client = $firebaseObject(ref.child('user'));
-
-    //     console.log(cliente);
-  
-    // });
-
-    $rootScope.PAGE = 'privado';
 
   	$('#ingresar').closeModal();
 
@@ -95,9 +87,9 @@ angular.module('webApp')
         .then(
             function(res) { // success
                 Map.addMarker(res);
-                $scope.client.b1.address = res.name;
-                $scope.client.b1.latitude = res.geometry.location.lat();
-                $scope.client.b1.longitude= res.geometry.location.lng();
+                $scope.client.boliches.a.address = res.name;
+                $scope.client.boliches.a.latitude = res.geometry.location.lat();
+                $scope.client.boliches.a.longitude= res.geometry.location.lng();
             },
             function(status) { // error
                 $scope.apiError = true;

@@ -64,7 +64,7 @@ input:-webkit-autofill
 	-webkit-box-shadow 0 0 0px 1000px white inset
 
 .lean-overlay
-	opacity 0.8 !important
+	opacity 0.9 !important
 	
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak 
 	display none !important
@@ -79,6 +79,18 @@ input:-webkit-autofill
 #map 
 	height 400px
 	margin 20px 0
+
+a[href^="http://maps.google.com/maps"]
+	display none !important
+	
+a[href^="https://maps.google.com/maps"]
+	display none !important
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc 
+	display none
+
+.gmnoprint div 
+	background none !important
 
 	
 /* BASICO FINAL */

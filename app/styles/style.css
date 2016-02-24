@@ -23,7 +23,7 @@ body {
   -webkit-text-shadow: 0px 1px 2px #000;
 }
 .texto-principal {
-  color: rgba(0,174,239,0.7) !important;
+  color: rgba(33,150,243,0.7) !important;
 }
 .texto-blanco {
   color: rgba(255,255,255,0.9) !important;
@@ -44,7 +44,7 @@ body {
   color: rgba(85,48,91,0.8) !important;
 }
 .bg-principal {
-  background-color: rgba(0,174,239,0.8) !important;
+  background-color: rgba(33,150,243,0.8) !important;
 }
 .bg-azul {
   background-color: rgba(45,58,67,0.8) !important;
@@ -65,14 +65,14 @@ body {
   width: 100%;
 }
 .seleccionado {
-  color: #00aeef !important;
+  color: #2196f3 !important;
   pointer-events: none;
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 .lean-overlay {
-  opacity: 0.8 !important;
+  opacity: 0.9 !important;
 }
 [ng:cloak],
 [ng-cloak],
@@ -93,6 +93,20 @@ input:-webkit-autofill {
   height: 400px;
   margin: 20px 0;
 }
+a[href^="http://maps.google.com/maps"] {
+  display: none !important;
+}
+a[href^="https://maps.google.com/maps"] {
+  display: none !important;
+}
+.gmnoprint a,
+.gmnoprint span,
+.gm-style-cc {
+  display: none;
+}
+.gmnoprint div {
+  background: none !important;
+}
 #logo {
   position: absolute;
   top: 45px;
@@ -109,6 +123,14 @@ input:-webkit-autofill {
   text-align: center;
   font-size: 40px;
   font-weight: 100;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#menu a:hover {
+  color: #2196f3;
 }
 #menu .modal-footer {
   background-color: transparent;
@@ -145,7 +167,7 @@ input:-webkit-autofill {
   -webkit-border-radius: 28px;
 }
 .navegador .tactil:hover {
-  color: #00aeef !important;
+  color: #2196f3 !important;
 }
 #btnMenu {
   transition: 0.4s opacity ease-out, 0.4s right ease-out;
@@ -177,7 +199,7 @@ input:-webkit-autofill {
   opacity: 0;
 }
 #donde {
-  transition: 0.3s opacity ease-out;
+  transition: 0.3s opacity ease-out, 0.3s color ease-out;
 }
 #donde.ng-hide-add,
 #donde.ng-hide-remove {
@@ -188,7 +210,7 @@ input:-webkit-autofill {
   opacity: 0;
 }
 #cerrar {
-  transition: 0.3s opacity ease-out;
+  transition: 0.2s opacity ease-out, 0.3s color ease-out;
 }
 #cerrar.ng-hide-add,
 #cerrar.ng-hide-remove {
@@ -204,7 +226,7 @@ input:-webkit-autofill {
   right: 40px;
 }
 #btnIngresar {
-  transition: 0.3s opacity ease-out;
+  transition: 0.2s opacity ease-out;
 }
 #btnIngresar.ng-hide-add,
 #btnIngresar.ng-hide-remove {
@@ -234,10 +256,70 @@ input:-webkit-autofill {
   background-color: rgba(0,0,0,0.4);
 }
 .socialMedia a:hover > i {
-  color: #00aeef;
+  color: #2196f3;
 }
 .separador {
   margin: 10px;
+}
+.propaContenedor {
+  position: absolute;
+  top: 220px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.propaContenedor .propa-titulo {
+  font-weight: bold;
+  margin-bottom: 40px;
+  font-size: 60px;
+}
+.propaContenedor .propa-texto {
+  font-weight: 300;
+  font-size: 30px;
+}
+.propaContenedor a {
+  margin-top: 40px;
+}
+.propaContenedor p {
+  margin: 0;
+}
+.logosContenedor {
+  max-width: 750px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.logosContenedor img {
+  padding: 0 5px;
+}
+.st1 {
+  overflow: hidden;
+  display: block;
+  background: #2196f3;
+  position: relative;
+}
+.st1 img {
+  margin-top: 130px;
+  display: block;
+  z-index: 10;
+  position: relative;
+}
+.st1 .texto {
+  color: #fff;
+  margin-top: 250px;
+  z-index: 10;
+  position: relative;
+}
+.st1 h2 {
+  font-weight: bold;
+}
+.st1 h5 {
+  font-weight: 300;
+}
+.st1 .icono-fondo {
+  position: absolute;
+  font-size: 900px;
+  left: -30px;
+  margin-top: -380px;
 }
 @media screen and (max-width: 800px) {
   .navegador .tactil {
@@ -251,6 +333,21 @@ input:-webkit-autofill {
   #logo {
     top: 5px;
     left: 10px;
+  }
+  .propaContenedor {
+    top: 90px;
+  }
+  .propaContenedor .propa-titulo {
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
+  .propaContenedor .propa-texto {
+    font-weight: 300;
+    font-size: 20px;
+  }
+  .propaContenedor a {
+    margin-top: 30px;
   }
 }
 /*
