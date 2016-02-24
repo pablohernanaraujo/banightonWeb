@@ -282,6 +282,7 @@ a[href^="https://maps.google.com/maps"] {
 }
 .propaContenedor p {
   margin: 0;
+  padding: 0 10px;
 }
 .logosContenedor {
   max-width: 750px;
@@ -334,6 +335,14 @@ a[href^="https://maps.google.com/maps"] {
     top: 5px;
     left: 10px;
   }
+  .propaContenedor {
+    top: 220px;
+  }
+  .propaContenedor .propa-titulo {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 600px) {
   .propaContenedor {
     top: 90px;
   }

@@ -50,16 +50,16 @@ angular.module('webApp')
 
       var mostrarImagen = function(){
         if(ancho>1280){
-          $scope.logo = './images/banighton.png';
+          $scope.logo = './images/newLogoCompleto4.png'; //banightonLogo
         }
         if(ancho<=1280){
-          $scope.logo = './images/banighton.png';
+          $scope.logo = './images/newLogoCompleto4.png';
         }
         if(ancho<=800){
-          $scope.logo = './images/banighton.png';
+          $scope.logo = './images/newLogoCompleto4.png';
         }
         if(ancho<=600){
-          $scope.logo = './images/logo.png';
+          $scope.logo = './images/newLogoCompleto4.png';
         }
       };
 
