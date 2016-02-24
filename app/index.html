@@ -40,9 +40,10 @@
       <div class="row white-text">
         <div class="col s12">
           <div id="logo">
-            <img ng-src="{{logo}}" alt="">
+            <img src="./images/Nlogo2.svg">
+            <div class="bno">banighton</div>
           </div>
-          <div class="tactil">
+          <div ng-show="!mobile" class="tactil">
             <div ng-show="btn" id="donde" class="seccion donde">{{PAGE | uppercase}}</div>
             <div ng-show="!btn" id="cerrar" class="seccion cerrar">CERRAR</div>
             <div ng-show="btn" id="btnMenu" class="right btnMenu">
@@ -56,6 +57,20 @@
               </a>
             </div>
           </div>
+
+          <div ng-show="mobile" class="tactilMobile">
+            <div ng-show="btn" id="btnMenuMobile" class="btnMenu">
+              <a class="btn-floating btn-large waves-effect waves-light black" ng-click="abrirModal('menu')">
+                <i class="right ion-navicon"></i>
+              </a>
+            </div>
+            <div ng-show="!btn" id="btnCerrarMobile" class="btnCerrar">
+              <a class="btn-floating btn-large waves-effect waves-light black" ng-click="cerrarModal()">
+                <i class="ion-android-close"></i>
+              </a>
+            </div>
+          </div>
+
           <div ng-show="btn" id="btnIngresar">
             <a ng-show="!currentUser" class="btn-floating btn-large waves-effect waves-light black" ng-click="abrirModal('ingresar')">
               <i class="right ion-log-in blue-text"></i>

@@ -4,6 +4,15 @@
 	position absolute
 	top 45px
 	left 30px
+	font-family 'z_arista_lightregular'
+	
+	& img 
+		float left
+	
+	& .bno 
+		float left
+		font-size 50px
+		margin-left 10px
 
 #menu
 	color blanco
@@ -53,6 +62,15 @@
 		
 	& .tactil:hover
 		color principal !important
+		
+	& .tactilMobile
+		width 56px
+		height 56px
+		background-color alpha(negro,50%)
+		position absolute
+		top 10px
+		right 70px
+		bordesCirculares(28px)
 	
 #btnMenu 
 	transition  .4s opacity ease-out, .4s right ease-out
@@ -78,6 +96,15 @@
 #btnCerrar.ng-hide-remove, #btnCerrar.ng-hide-add.ng-hide-add-active
 	left  60px
 	opacity  0
+	
+#btnMenuMobile
+	transition  .4s opacity ease-out
+	position absolute
+	
+#btnCerrarMobile
+	transition  .4s opacity ease-out
+	position absolute
+	opacity  1
 	
 #donde 
 	transition  .3s opacity ease-out, .3s color ease-out

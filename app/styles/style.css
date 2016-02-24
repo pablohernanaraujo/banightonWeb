@@ -2,14 +2,19 @@
 
 @import 'ap-reset.styl'
 
-@import 'ap-fuentes.styl'
-
 */
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,100");
+@font-face {
+  font-family: 'z_arista_lightregular';
+  src: url("../fonts/z_arista_light-webfont.eot");
+  src: url("../fonts/z_arista_light-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/z_arista_light-webfont.woff2") format('woff2'), url("../fonts/z_arista_light-webfont.woff") format('woff'), url("../fonts/z_arista_light-webfont.ttf") format('truetype'), url("../fonts/z_arista_light-webfont.svg#z_arista_lightregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url("https://fonts.googleapis.com/css?family=Signika:400,700,300");
 html {
   background-color: #0d0d0d;
   overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Signika', sans-serif;
   font-weight: 400;
 }
 body {
@@ -111,6 +116,15 @@ a[href^="https://maps.google.com/maps"] {
   position: absolute;
   top: 45px;
   left: 30px;
+  font-family: 'z_arista_lightregular';
+}
+#logo img {
+  float: left;
+}
+#logo .bno {
+  float: left;
+  font-size: 50px;
+  margin-left: 10px;
 }
 #menu {
   color: #fff;
@@ -169,6 +183,19 @@ a[href^="https://maps.google.com/maps"] {
 .navegador .tactil:hover {
   color: #2196f3 !important;
 }
+.navegador .tactilMobile {
+  width: 56px;
+  height: 56px;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 10px;
+  right: 70px;
+  border-radius: 28px;
+  -o-border-radius: 28px;
+  -ms-border-radius: 28px;
+  -moz-border-radius: 28px;
+  -webkit-border-radius: 28px;
+}
 #btnMenu {
   transition: 0.4s opacity ease-out, 0.4s right ease-out;
   position: absolute;
@@ -197,6 +224,15 @@ a[href^="https://maps.google.com/maps"] {
 #btnCerrar.ng-hide-add.ng-hide-add-active {
   left: 60px;
   opacity: 0;
+}
+#btnMenuMobile {
+  transition: 0.4s opacity ease-out;
+  position: absolute;
+}
+#btnCerrarMobile {
+  transition: 0.4s opacity ease-out;
+  position: absolute;
+  opacity: 1;
 }
 #donde {
   transition: 0.3s opacity ease-out, 0.3s color ease-out;
@@ -343,6 +379,16 @@ a[href^="https://maps.google.com/maps"] {
   }
 }
 @media screen and (max-width: 600px) {
+  #logo {
+    left: 0px;
+  }
+  #logo img {
+    width: 55px;
+  }
+  #logo .bno {
+    font-size: 40px;
+    margin-left: 5px;
+  }
   .propaContenedor {
     top: 90px;
   }
@@ -357,6 +403,30 @@ a[href^="https://maps.google.com/maps"] {
   }
   .propaContenedor a {
     margin-top: 30px;
+  }
+}
+@media screen and (max-width: 350px) {
+  #logo {
+    top: 12px;
+  }
+  #logo img {
+    width: 50px;
+  }
+  #logo .bno {
+    font-size: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .propaContenedor {
+    top: 85px;
+  }
+  .propaContenedor .propa-titulo {
+    margin-bottom: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  .propaContenedor a {
+    margin-top: 20px;
   }
 }
 /*

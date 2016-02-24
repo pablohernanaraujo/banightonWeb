@@ -50,16 +50,21 @@ angular.module('webApp')
 
       var mostrarImagen = function(){
         if(ancho>1280){
-          $scope.logo = './images/newLogoCompleto4.png'; //banightonLogo
+          $scope.mobile = false;
         }
         if(ancho<=1280){
-          $scope.logo = './images/newLogoCompleto4.png';
+          $scope.mobile = false;
         }
         if(ancho<=800){
-          $scope.logo = './images/newLogoCompleto4.png';
+          $scope.mobile = false;
         }
         if(ancho<=600){
-          $scope.logo = './images/newLogoCompleto4.png';
+          $scope.mobile = true;
+        }
+        if(ancho<=350){
+          $scope.$apply(function(){
+            $scope.mobile = true;
+          });
         }
       };
 
@@ -70,13 +75,19 @@ angular.module('webApp')
           
         if(ancho<=1280){
           $scope.$apply(function(){
-            $scope.logo = './images/banighton.png';
+            $scope.mobile = false;
           });
         }
 
         if(ancho<=600){
           $scope.$apply(function(){
-            $scope.logo = './images/logo.png';
+            $scope.mobile = true;
+          });
+        }
+
+        if(ancho<=350){
+          $scope.$apply(function(){
+            $scope.mobile = true;
           });
         }
       });
