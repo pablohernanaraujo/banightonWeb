@@ -12,7 +12,7 @@
 }
 @import url("https://fonts.googleapis.com/css?family=Signika:400,700,300");
 html {
-  background-color: #0d0d0d;
+  background-color: #151515;
   overflow-x: hidden;
   font-family: 'Signika', sans-serif;
   font-weight: 400;
@@ -28,7 +28,7 @@ body {
   -webkit-text-shadow: 0px 1px 2px #000;
 }
 .texto-principal {
-  color: rgba(33,150,243,0.7) !important;
+  color: rgba(27,188,155,0.7) !important;
 }
 .texto-blanco {
   color: rgba(255,255,255,0.9) !important;
@@ -49,7 +49,7 @@ body {
   color: rgba(85,48,91,0.8) !important;
 }
 .bg-principal {
-  background-color: rgba(33,150,243,0.8) !important;
+  background-color: rgba(27,188,155,0.8) !important;
 }
 .bg-azul {
   background-color: rgba(45,58,67,0.8) !important;
@@ -70,7 +70,7 @@ body {
   width: 100%;
 }
 .seleccionado {
-  color: #2196f3 !important;
+  color: #1bbc9b !important;
   pointer-events: none;
 }
 input:-webkit-autofill {
@@ -120,6 +120,7 @@ a[href^="https://maps.google.com/maps"] {
 }
 #logo img {
   float: left;
+  width: 60px;
 }
 #logo .bno {
   float: left;
@@ -144,7 +145,7 @@ a[href^="https://maps.google.com/maps"] {
   transition: all 0.3s;
 }
 #menu a:hover {
-  color: #2196f3;
+  color: #1bbc9b;
 }
 #menu .modal-footer {
   background-color: transparent;
@@ -181,7 +182,7 @@ a[href^="https://maps.google.com/maps"] {
   -webkit-border-radius: 28px;
 }
 .navegador .tactil:hover {
-  color: #2196f3 !important;
+  color: #1bbc9b !important;
 }
 .navegador .tactilMobile {
   width: 56px;
@@ -292,10 +293,33 @@ a[href^="https://maps.google.com/maps"] {
   background-color: rgba(0,0,0,0.4);
 }
 .socialMedia a:hover > i {
-  color: #2196f3;
+  color: #1bbc9b;
 }
 .separador {
   margin: 10px;
+}
+INICIO */,
+.triangulo1 {
+  width: 100%;
+  height: 0;
+  border-style: solid;
+  border-width: 150px 950px 0 950px;
+  border-color: transparent #151515 #151515 #151515;
+  position: absolute;
+  margin-bottom: 90px;
+  box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.tri1 {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+.trio img {
+  width: 100%;
 }
 .propaContenedor {
   position: absolute;
@@ -331,11 +355,11 @@ a[href^="https://maps.google.com/maps"] {
 .st1 {
   overflow: hidden;
   display: block;
-  background: #2196f3;
   position: relative;
+  background: #1bbc9b;
+  margin: 0;
 }
 .st1 img {
-  margin-top: 130px;
   display: block;
   z-index: 10;
   position: relative;
@@ -357,6 +381,80 @@ a[href^="https://maps.google.com/maps"] {
   font-size: 900px;
   left: -30px;
   margin-top: -380px;
+}
+.tri2 {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 1px;
+  z-index: 15;
+}
+.tri3 {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 1px;
+  z-index: 15;
+}
+.st2 {
+  overflow: hidden;
+  display: block;
+  background: #a13a55;
+  position: relative;
+  margin: 0;
+}
+.st2 img {
+  display: block;
+  z-index: 10;
+  position: relative;
+}
+.st2 .texto {
+  color: #fff;
+  margin-top: 250px;
+  z-index: 10;
+  position: relative;
+}
+.st2 h2 {
+  font-weight: bold;
+}
+.st2 h5 {
+  font-weight: 300;
+}
+.st2 .icono-fondo {
+  position: absolute;
+  font-size: 900px;
+  right: -50px;
+  margin-top: -390px;
+}
+.st3 {
+  overflow: hidden;
+  display: block;
+  background: #55305b;
+  position: relative;
+  margin: 0;
+}
+.st3 img {
+  display: block;
+  z-index: 10;
+  position: relative;
+}
+.st3 .texto {
+  color: #fff;
+  margin-top: 250px;
+  z-index: 10;
+  position: relative;
+}
+.st3 h2 {
+  font-weight: bold;
+}
+.st3 h5 {
+  font-weight: 300;
+}
+.st3 .icono-fondo {
+  position: absolute;
+  font-size: 900px;
+  left: -30px;
+  margin-top: -300px;
 }
 @media screen and (max-width: 800px) {
   .navegador .tactil {

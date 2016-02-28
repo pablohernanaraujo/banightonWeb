@@ -11,15 +11,19 @@ angular.module('webApp')
       var mostrarImagen = function(){
         if(ancho>1280){
           $scope.imagenInicio = './images/inicio1920.jpg';
+          $scope.pushiar = false;
         }
         if(ancho<=1280){
           $scope.imagenInicio = './images/inicio1280.jpg';
+          $scope.pushiar = false;
         }
         if(ancho<=800){
           $scope.imagenInicio = './images/inicio800.jpg';
+          $scope.pushiar = false;
         }
         if(ancho<=600){
           $scope.imagenInicio = './images/inicio600.jpg';
+          $scope.pushiar = true;
         }
       };
 
@@ -31,21 +35,25 @@ angular.module('webApp')
           if(ancho>1280){
             $scope.$apply(function(){
               $scope.imagenInicio = './images/inicio1920.jpg';
+              $scope.pushiar = false;
             });
         }
         if(ancho<=1280){
             $scope.$apply(function(){
               $scope.imagenInicio = './images/inicio1280.jpg';
+              $scope.pushiar = false;
             });
         }
         if(ancho<=800){
             $scope.$apply(function(){
               $scope.imagenInicio = './images/inicio800.jpg';
+              $scope.pushiar = false;
             });
         }
         if(ancho<=600){
             $scope.$apply(function(){
               $scope.imagenInicio = './images/inicio600.jpg';
+              $scope.pushiar = true;
             });
         }
       });

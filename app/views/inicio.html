@@ -1,11 +1,12 @@
-<div class="row" style="overflow-x:hidden">
+<div class="row" style="overflow-x:hidden;position: relative;">
     <img ng-src="{{imagenInicio}}" alt="" width="100%">
     <div class="propaContenedor">
 	    <p class="propa-titulo">Encontra donde ir con amigos</p>
 	    <p class="propa-texto">Desde tu teléfono te damos todas las opciones</p>
 	    <p class="propa-texto">y te mostramos como llegar</p>
-	    <a class="waves-effect waves-light btn-large blue">Registrate</a>
+	    <a class="waves-effect waves-light btn-large bg-principal">Registrate</a>
     </div>
+    <img class="tri1" src="/images/tri1.svg" alt="">
 </div>
 
 <div class="row">
@@ -27,17 +28,59 @@
 	<div class="container">
 		<div class="col s12 m7">
 			<div class="texto">
-			    <h2>Donde vamos</h2>
+			    <h2>Donde vamos?</h2>
 			    <h5>Te mostramos los boliches que esten </h5>
 			    <h5>mas cerca de vos</h5>
-			    <h5>Y podes ver la lista</h5>
-			    <h5>o podes verlos en el mapa</h5>
+			    <h5></h5>
+			    <h5></h5>
 			</div>
 		</div>
 		<div class="col s12 m5">
-			<img src="./images/st1.png">
+			<img src="./images/phoneBase.png">
 		</div>
 		<i class="ion-chatboxes icono-fondo"></i>
+	</div>
+	<img class="tri2" src="/images/tri2.svg" alt="">
+</div>
+
+
+<div class="row st2">
+	<div class="container">
+		<div ng-show="!pushiar" class="col s12 m5">
+			<img src="./images/phoneBase.png">
+		</div>
+		<div class="col s12 m7">
+			<div class="texto">
+			    <h2>Que lugar nos gusta mas?</h2>
+			    <h5>Te damos toda la info necesaria</h5>
+			    <h5>para que puedas elegir</h5>
+			    <h5></h5>
+			    <h5></h5>
+			</div>
+		</div>
+		<div ng-show="pushiar" class="col s12 m5">
+			<img src="./images/phoneBase.png">
+		</div>
+		<i class="ion-ios-people icono-fondo"></i>
+	</div>
+	<img class="tri3" src="/images/tri3.svg" alt="">
+</div>
+
+<div class="row st3">
+	<div class="container">
+		<div class="col s12 m7">
+			<div class="texto">
+			    <h2>Como llegamos?</h2>
+			    <h5>Te mostramos como</h5>
+			    <h5>y por donde ir</h5>
+			    <h5></h5>
+			    <h5></h5>
+			</div>
+		</div>
+		<div class="col s12 m5">
+			<img src="./images/phoneBase.png">
+		</div>
+		<i class="ion-map icono-fondo"></i>
 	</div>
 </div>
 
@@ -56,11 +99,11 @@
 				        <img class="activator" src="images/pushzonales.jpg">
 				    </div>
 				    <div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">Push zonales<i class="ion-more right"></i></span>
+						<span class="card-title activator grey-text text-darken-4">Push<i class="ion-more right"></i></span>
 						<p><a href="#">Ver detallado</a></p>
 				    </div>
 				    <div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Push zonales<i class="ion-close-round right"></i></span>
+						<span class="card-title grey-text text-darken-4">Push<i class="ion-close-round right"></i></span>
 						<p>Enviar mensajes zonales con eventos promos y informacion.</p>
 				    </div>
 				</div>
@@ -86,11 +129,11 @@
 				        <img class="activator" src="images/appservicios.jpg">
 				    </div>
 				    <div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">APP Clientes<i class="ion-more right"></i></span>
+						<span class="card-title activator grey-text text-darken-4">App<i class="ion-more right"></i></span>
 						<p><a href="#">Ver detallado</a></p>
 				    </div>
 				    <div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">APP Clientes<i class="ion-close-round right"></i></span>
+						<span class="card-title grey-text text-darken-4">App<i class="ion-close-round right"></i></span>
 						<p>Podes tener en tu celular una APP para podes administrar tus servicion de la forma que mas te guste.</p>
 				    </div>
 				</div>
