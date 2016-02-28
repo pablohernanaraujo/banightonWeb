@@ -385,14 +385,14 @@ INICIO */,
 .tri2 {
   width: 100%;
   position: absolute;
-  bottom: 0px;
+  bottom: -1px;
   left: 1px;
   z-index: 15;
 }
 .tri3 {
   width: 100%;
   position: absolute;
-  bottom: 0px;
+  bottom: -1px;
   left: 1px;
   z-index: 15;
 }
