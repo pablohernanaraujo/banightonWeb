@@ -382,6 +382,11 @@ INICIO */,
   left: -30px;
   margin-top: -380px;
 }
+.st1 .divider {
+  height: 2px;
+  background-color: #16967c;
+  border-bottom: 1px solid #1fd6b0;
+}
 .tri2 {
   width: 100%;
   position: absolute;
@@ -426,6 +431,11 @@ INICIO */,
   right: -50px;
   margin-top: -390px;
 }
+.st2 .divider {
+  height: 2px;
+  background-color: #812e44;
+  border-bottom: 1px solid #b64260;
+}
 .st3 {
   overflow: hidden;
   display: block;
@@ -455,6 +465,29 @@ INICIO */,
   font-size: 900px;
   left: -30px;
   margin-top: -300px;
+}
+.st3 .divider {
+  height: 2px;
+  background-color: #442649;
+  border-bottom: 1px solid #6c3d73;
+}
+.circulos {
+  border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #f3d45f;
+  width: 80px;
+  height: 80px;
+  box-shadow: -10px 10px 15px rgba(0,0,0,0.6);
+  -o-box-shadow: -10px 10px 15px rgba(0,0,0,0.6);
+  -ms-box-shadow: -10px 10px 15px rgba(0,0,0,0.6);
+  -moz-box-shadow: -10px 10px 15px rgba(0,0,0,0.6);
+  -webkit-box-shadow: -10px 10px 15px rgba(0,0,0,0.6);
+  text-align: center;
+  line-height: 80px;
+  font-size: 30px;
 }
 @media screen and (max-width: 800px) {
   .navegador .tactil {
