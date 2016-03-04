@@ -26,7 +26,7 @@
 
 <div class="row st1">
 	<div class="container">
-		<div class="col s12 m7">
+		<div class="col s12 m7 wow fadeInLeft" data-wow-duration="1s">
 			<div class="texto">
 				<div class="circulos">1.</div>
 			    <h2>Dónde vamos?</h2>
@@ -37,21 +37,19 @@
 			    <h5></h5>
 			</div>
 		</div>
-		<div class="col s12 m5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+		<div class="col s12 m5 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
 			<img src="./images/phone1.png">
 		</div>
-		<i class="ion-chatboxes icono-fondo"></i>
 	</div>
-	<img class="tri2" src="./images/tri2.svg" alt="">
 </div>
 
 
 <div class="row st2">
 	<div class="container">
-		<div ng-show="!pushiar" class="col s12 m7">
+		<div ng-show="!pushiar" class="col s12 m7 wow fadeInLeft" data-wow-duration="1s">
 			<img src="./images/phone2.png">
 		</div>
-		<div class="col s12 m5">
+		<div class="col s12 m5 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
 			<div class="texto">
 				<div class="circulos">2.</div>
 			    <h2>Qué lugar nos gusta mas?</h2>
@@ -62,17 +60,15 @@
 			    <h5></h5>
 			</div>
 		</div>
-		<div ng-show="pushiar" class="col s12 m7 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+		<div ng-show="pushiar" class="col s12 m7 wow fadeInLeft" data-wow-duration="1s">
 			<img src="./images/phone2.png">
 		</div>
-		<i class="ion-ios-people icono-fondo"></i>
 	</div>
-	<img class="tri3" src="./images/tri3.svg" alt="">
 </div>
 
 <div class="row st3">
 	<div class="container">
-		<div class="col s12 m7">
+		<div class="col s12 m7 wow fadeInLeft" data-wow-duration="1s">
 			<div class="texto">
 				<div class="circulos">3.</div>
 			    <h2>Cómo llegamos?</h2>
@@ -86,11 +82,36 @@
 		<div class="col s12 m5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
 			<img src="./images/phone3.png">
 		</div>
-		<i class="ion-map icono-fondo"></i>
 	</div>
 </div>
 
-<div class="row bg-blanco banightonFondo">
+<div class="parallax-container col s12 wow fadeIn" data-wow-duration="1s">
+	<div class="parallax">
+		<img src="images/visitanos.jpg" alt="">
+	</div>
+	<div class="container">
+		<div class="row texto-blanco" style="margin-top:70px">
+			<div class="col l6 s12 offset-l6 socials">
+				<h4>Visitanos</h4>
+				<p>Date un break y mira todo lo que tenemos para vos</p>
+				<div class="divider"></div>
+				<a class="btn-floating btn-large waves-effect waves-light btn-flat">
+				  	<i class="ion-social-facebook"></i>
+				</a>
+
+				<a class="btn-floating btn-large waves-effect waves-light btn-flat">
+				    <i class="ion-social-twitter"></i>
+				</a>
+
+				<a class="btn-floating btn-large waves-effect waves-light btn-flat">
+				    <i class="ion-social-instagram"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row bg-blanco banightonFondo"  style="margin: 0; display: block;">
 	<div class="container">
 		<div class="section wow" ng-class="{'fadeInRight': cambio, 'fadeIn': !cambio }" data-wow-duration="1s">
 		    <div class="section centrar-texto">
@@ -146,4 +167,25 @@
 			</div>
 		</div>
 	</div>	
+</div>
+
+<div class="parallax-container wow fadeIn"  data-wow-duration="1s" data-wow-delay="1s" style="margin: 0; display: block;">
+	<div class="container">
+		<div class="row texto-blanco" style="margin-top:70px">
+			<div class="col l6 s12">
+				<h4>Enterate de todas las novedades primero</h4>
+				<p>Mantente en contacto</p>
+				<div class="divider"></div>
+				<div class="input-field s12">
+					<i class="ion-email prefix"></i>
+		            <input style="color:white" id="icon_prefix" type="email" class="validate">
+		            <label for="icon_prefix">Email</label>
+		            <a class="waves-effect waves-light btn bg-principal" style="width:100%">Enviar</a>
+	            </div>
+			</div>
+		</div>
+	</div>
+    <div class="parallax">
+  		<img src="images/mapa-2.jpg" >
+  	</div>
 </div>

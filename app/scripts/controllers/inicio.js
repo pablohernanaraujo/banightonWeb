@@ -28,6 +28,7 @@ angular.module('webApp')
       };
 
       mostrarImagen();
+      $('.parallax').parallax();
 
       $(window).resize(function() {
         ancho = $( window ).width();

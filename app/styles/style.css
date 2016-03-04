@@ -28,7 +28,7 @@ body {
   -webkit-text-shadow: 0px 1px 2px #000;
 }
 .texto-principal {
-  color: rgba(27,188,155,0.7) !important;
+  color: rgba(0,174,239,0.7) !important;
 }
 .texto-blanco {
   color: rgba(255,255,255,0.9) !important;
@@ -49,7 +49,7 @@ body {
   color: rgba(85,48,91,0.8) !important;
 }
 .bg-principal {
-  background-color: rgba(27,188,155,0.8) !important;
+  background-color: rgba(0,174,239,0.8) !important;
 }
 .bg-azul {
   background-color: rgba(45,58,67,0.8) !important;
@@ -70,7 +70,7 @@ body {
   width: 100%;
 }
 .seleccionado {
-  color: #1bbc9b !important;
+  color: #00aeef !important;
   pointer-events: none;
 }
 input:-webkit-autofill {
@@ -126,6 +126,7 @@ a[href^="https://maps.google.com/maps"] {
   float: left;
   font-size: 50px;
   margin-left: 10px;
+  color: #00aeef;
 }
 #menu {
   color: #fff;
@@ -145,7 +146,7 @@ a[href^="https://maps.google.com/maps"] {
   transition: all 0.3s;
 }
 #menu a:hover {
-  color: #1bbc9b;
+  color: #00aeef;
 }
 #menu .modal-footer {
   background-color: transparent;
@@ -182,7 +183,7 @@ a[href^="https://maps.google.com/maps"] {
   -webkit-border-radius: 28px;
 }
 .navegador .tactil:hover {
-  color: #1bbc9b !important;
+  color: #00aeef !important;
 }
 .navegador .tactilMobile {
   width: 56px;
@@ -293,7 +294,7 @@ a[href^="https://maps.google.com/maps"] {
   background-color: rgba(0,0,0,0.4);
 }
 .socialMedia a:hover > i {
-  color: #1bbc9b;
+  color: #00aeef;
 }
 .separador {
   margin: 10px;
@@ -355,8 +356,6 @@ INICIO */,
 .st1 {
   overflow: hidden;
   display: block;
-  position: relative;
-  background: #1bbc9b;
   margin: 0;
 }
 .st1 img {
@@ -376,37 +375,15 @@ INICIO */,
 .st1 h5 {
   font-weight: 300;
 }
-.st1 .icono-fondo {
-  position: absolute;
-  font-size: 900px;
-  left: -30px;
-  margin-top: -380px;
-}
 .st1 .divider {
   width: 390px;
   height: 2px;
-  background-color: #16967c;
-  border-bottom: 1px solid #1fd6b0;
-}
-.tri2 {
-  width: 100%;
-  position: absolute;
-  bottom: -1px;
-  left: 1px;
-  z-index: 15;
-}
-.tri3 {
-  width: 100%;
-  position: absolute;
-  bottom: -1px;
-  left: 1px;
-  z-index: 15;
+  background-color: #000;
+  border-bottom: 1px solid #1a1a1a;
 }
 .st2 {
   overflow: hidden;
   display: block;
-  background: #a13a55;
-  position: relative;
   margin: 0;
 }
 .st2 img {
@@ -426,23 +403,15 @@ INICIO */,
 .st2 h5 {
   font-weight: 300;
 }
-.st2 .icono-fondo {
-  position: absolute;
-  font-size: 900px;
-  right: -50px;
-  margin-top: -390px;
-}
 .st2 .divider {
   width: 520px;
   height: 2px;
-  background-color: #812e44;
-  border-bottom: 1px solid #b64260;
+  background-color: #000;
+  border-bottom: 1px solid #1a1a1a;
 }
 .st3 {
   overflow: hidden;
   display: block;
-  background: #55305b;
-  position: relative;
   margin: 0;
 }
 .st3 img {
@@ -471,8 +440,8 @@ INICIO */,
 .st3 .divider {
   width: 430px;
   height: 2px;
-  background-color: #442649;
-  border-bottom: 1px solid #6c3d73;
+  background-color: #000;
+  border-bottom: 1px solid #1a1a1a;
 }
 .circulos {
   border-radius: 50%;
@@ -480,7 +449,7 @@ INICIO */,
   -ms-border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
-  background-color: #f3d45f;
+  background-color: #00aeef;
   width: 80px;
   height: 80px;
   box-shadow: -10px 10px 15px rgba(0,0,0,0.6);
@@ -491,6 +460,13 @@ INICIO */,
   text-align: center;
   line-height: 80px;
   font-size: 30px;
+}
+.socials a {
+  margin-top: 20px;
+  margin-right: 5px;
+}
+.socials a:hover {
+  background-color: rgba(0,174,239,0.5);
 }
 @media screen and (max-width: 800px) {
   .navegador .tactil {
