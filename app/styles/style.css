@@ -116,17 +116,10 @@ a[href^="https://maps.google.com/maps"] {
   position: absolute;
   top: 45px;
   left: 30px;
-  font-family: 'z_arista_lightregular';
 }
 #logo img {
   float: left;
-  width: 60px;
-}
-#logo .bno {
-  float: left;
-  font-size: 50px;
-  margin-left: 10px;
-  color: #00aeef;
+  width: 300px;
 }
 #menu {
   color: #fff;

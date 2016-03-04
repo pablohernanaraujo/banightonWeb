@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="webApp">
+  <body ng-app="webApp" ng-cloak>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -40,8 +40,7 @@
       <div class="row white-text">
         <div class="col s12">
           <div id="logo">
-            <img src="./images/logo.png">
-            <div class="bno">banighton</div>
+            <img src="./images/banighton.png">
           </div>
           <div ng-show="!mobile" class="tactil">
             <div ng-show="btn" id="donde" class="seccion donde">{{PAGE | uppercase}}</div>
