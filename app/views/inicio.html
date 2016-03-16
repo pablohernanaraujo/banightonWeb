@@ -1,91 +1,103 @@
-<div class="row" style="overflow-x:hidden;position: relative;">
-    <img ng-src="{{imagenInicio}}" alt="" width="100%">
-    <div class="propaContenedor">
-	    <p class="propa-titulo">Encontra dónde ir con amigos</p>
-	    <p class="propa-texto">Desde tu teléfono te damos todas las opciones</p>
-	    <p class="propa-texto">y te mostramos cómo llegar</p>
-	    <a class="waves-effect waves-light btn-large bg-principal">Registrate</a>
-    </div>
-    <img class="tri1" src="./images/tri1.svg" alt="">
+<video autoplay loop class="bgvideo" id="bgvideo">
+	<source src="videos/banighton1080.mp4" type="video/mp4">
+	<source src="videos/banighton1080.ogv" type="video/ogv">
+	<source src="videos/banighton1080.webm" type="video/webm">
+</video>
+
+<div class="contenedorPropa">
+    <div class="wow bounceInLeft" data-wow-duration="1s" data-wow-delay="1s">la <span>Guia</span> de la</div>
+    <div class="wow bounceInLeft" data-wow-duration="1s" data-wow-delay="1.5s"><span>Noche</span> en tu</div>
+    <div class="wow bounceInLeft" data-wow-duration="1s" data-wow-delay="2s"><span>Smartphone</span></div>
+    <a class="wow bounceInLeft btn-floating btn-large waves-effect waves-light btn-flat" ng-click="abrirModalVideo()" data-wow-duration="1s" data-wow-delay="2.5s" style="padding-left:5px">
+    	<i class="ion-play" style="font-size:40px"></i>
+	</a>
 </div>
 
-<div class="row">
+
+<div class="row bg-segundario">
 	<div class="container">
-		<div class="logosContenedor">
-			<img src="./images/logos/sunset.png">
-			<img src="./images/logos/pinar.png">
-			<img src="./images/logos/big-one.png">
-			<img src="./images/logos/club21.png">
-			<img src="./images/logos/asia-de-cuba.png">
-			<img src="./images/logos/caix.png">
-			<img src="./images/logos/jesse-james.png">
-			<img src="./images/logos/el-bosque.png">
+		<div class="row promosContenedor">
+
+			<div class="col s12 m6 l4 wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+				<div class="center promo promo-example">
+					<i class="ion-happy"></i>
+					<span class="promo-caption">Bienvenido</span>
+					<p class="light center">A Banighton, la nueva herramienta para tu Smartphone que te presenta las mejores opciones para tus noches.</p>
+				</div>
+			</div>
+			<div class="col s12 m6 l4 wow fadeIn" data-wow-duration="1s" data-wow-delay="1.5s">
+				<div class="center promo">
+					<i class="ion-navigate"></i>
+					<span class="promo-caption">Banighton</span>
+					<p class="light center">Es la App fácil de usar, intuitiva y gratuita que con su sistema de rastreo y geolocalizacion te abrirá las puertas de la noche con las mejores propuestas en el lugar donde te encuentres.</p>
+				</div>
+			</div>
+			<div class="col s12 m6 l4 wow fadeIn" data-wow-duration="1s" data-wow-delay="2s">
+				<div class="center promo promo-example">
+					<i class="ion-information-circled"></i>
+					<span class="promo-caption">Información detallada</span>
+					<p class="light center">De cada Boliche con sus características, estilo musical, edad, días de apertura, descuentos y beneficios por  formar parte de la comunidad Banighton.</p>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 </div>
 
-<div class="row st1" ng-cloak>
+<div class="parallax-container wow fadeIn"  data-wow-duration="1s" data-wow-delay="1s" style="margin: 0; display: block;">
 	<div class="container">
-		<div class="col s12 m7 wow fadeInLeft" data-wow-duration="1s">
+		<div class="row texto-blanco" style="margin-top:70px">
+			<div class="col l6 s12">
+				<h4>Enterate de todas las novedades primero</h4>
+				<p>Mantente en contacto</p>
+				<div class="divider"></div>
+				<div class="input-field s12">
+					<i class="ion-email prefix"></i>
+		            <input style="color:white" id="icon_prefix" type="email" class="validate">
+		            <label for="icon_prefix">Email</label>
+		            <a class="waves-effect waves-light btn bg-principal" style="width:100%">Enviar</a>
+	            </div>
+			</div>
+		</div>
+	</div>
+    <div class="parallax">
+  		<img src="images/mapa-3.jpg" >
+  	</div>
+</div>
+
+<div class="row st1 bg-segundario">
+	<div class="container">
+		<div class="col s12 m4 wow fadeInLeft" data-wow-duration="1s">
+			<img src="./images/phone01.png" width="cover">
 			<div class="texto">
 				<div class="circulos">1.</div>
 			    <h2>Dónde vamos?</h2>
 			    <div class="divider"></div>
-			    <h5>Te mostramos los mejores lugares</h5>
-			    <h5>que esten cerca</h5>
-			    <h5></h5>
-			    <h5></h5>
+			    <p>En cartelera principal, los boliches, bares y próximos eventos para qué siempre estés actualizado.</p>
 			</div>
 		</div>
-		<div class="col s12 m5 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-			<img src="./images/phone1.png">
-		</div>
-	</div>
-</div>
-
-
-<div class="row st2" ng-cloak>
-	<div class="container">
-		<div ng-show="!pushiar" class="col s12 m7 wow fadeInLeft" data-wow-duration="1s">
-			<img src="./images/phone2.png">
-		</div>
-		<div class="col s12 m5 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+		<div class="col s12 m4 wow fadeIn" data-wow-duration="1.5s">
+			<img src="./images/phone02.png">
 			<div class="texto">
 				<div class="circulos">2.</div>
 			    <h2>Qué lugar nos gusta mas?</h2>
 			    <div class="divider"></div>
-			    <h5>Te damos toda la info necesaria</h5>
-			    <h5>para que puedas elegir</h5>
-			    <h5></h5>
-			    <h5></h5>
+			    <p>Desde Banighton accede al indice de boliches, bares y eventos.</p>
 			</div>
 		</div>
-		<div ng-show="pushiar" class="col s12 m7 wow fadeInLeft" data-wow-duration="1s">
-			<img src="./images/phone2.png">
-		</div>
-	</div>
-</div>
-
-<div class="row st3">
-	<div class="container">
-		<div class="col s12 m7 wow fadeInLeft" data-wow-duration="1s">
+		<div class="col s12 m4 wow fadeInRight" data-wow-duration="2s">
+			<img src="./images/phone03.png">
 			<div class="texto">
 				<div class="circulos">3.</div>
 			    <h2>Cómo llegamos?</h2>
 			    <div class="divider"></div>
-			    <h5>Te mostramos cómo</h5>
-			    <h5>y por dónde ir</h5>
-			    <h5></h5>
-			    <h5></h5>
+			    <p>Utilizá Banighton también como guía en GPS para llegar a tu destino elegido.</p>
 			</div>
-		</div>
-		<div class="col s12 m5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
-			<img src="./images/phone3.png">
 		</div>
 	</div>
 </div>
 
-<div class="parallax-container col s12 wow fadeIn" data-wow-duration="1s">
+<div class="parallax-container col s12 wow fadeIn " data-wow-duration="1s">
 	<div class="parallax">
 		<img src="images/visitanos.jpg" alt="">
 	</div>
@@ -111,19 +123,13 @@
 	</div>
 </div>
 
-<div class="row bg-blanco banightonFondo"  style="margin: 0; display: block;">
+<div class="row bg-blanco serv"  style="margin: 0; display: block;">
 	<div class="container">
-		<div class="section wow" ng-class="{'fadeInRight': cambio, 'fadeIn': !cambio }" data-wow-duration="1s">
-		    <div class="section centrar-texto">
-			    <h5>Todo lo que necesitas</h5>
-			    <p class="texto-gris">Para que tus usuarios esten más conectados</p>
-			</div>
-	    </div>
 		<div class="row">
-			<div class="col s12 m6 l4 wow fadeIn" data-wow-duration="1s">
+			<div class="col s12 m4 wow fadeIn" data-wow-duration="1s">
 				<div class="card hoverable">
 				    <div class="card-image waves-effect waves-block waves-light">
-				        <img class="activator" src="images/pushzonales.jpg">
+				        <img class="activator" src="images/pushIOS.jpg">
 				    </div>
 				    <div class="card-content">
 						<span class="card-title activator grey-text text-darken-4">Push<i class="ion-more right"></i></span>
@@ -135,10 +141,16 @@
 				    </div>
 				</div>
 			</div>
-			<div class="col s12 m6 l4 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+			<div class="col s12 m4 wow fadeIn">
+				<div class="section centrar-texto">
+				    <h5>Todo lo que necesitas</h5>
+				    <p class="texto-gris">Para que tus usuarios esten más informados</p>
+				</div>
+			</div>
+			<div class="col s12 m4 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
 				<div class="card hoverable">
 				    <div class="card-image waves-effect waves-block waves-light">
-				        <img class="activator" src="images/mailing.jpg">
+				        <img class="activator" src="images/mailingIOS.jpg">
 				    </div>
 				    <div class="card-content">
 						<span class="card-title activator grey-text text-darken-4">Mailing<i class="ion-more right"></i></span>
@@ -150,42 +162,20 @@
 				    </div>
 				</div>
 			</div>
-			<div class="col s12 m6 l4 wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
-				<div class="card hoverable">
-				    <div class="card-image waves-effect waves-block waves-light">
-				        <img class="activator" src="images/appservicios.jpg">
-				    </div>
-				    <div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">App<i class="ion-more right"></i></span>
-						<p><a href="#">Ver detallado</a></p>
-				    </div>
-				    <div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">App<i class="ion-close-round right"></i></span>
-						<p>Podes tener en tu celular una APP para podes administrar tus servicion de la forma que mas te guste.</p>
-				    </div>
-				</div>
-			</div>
 		</div>
 	</div>	
 </div>
 
-<div class="parallax-container wow fadeIn"  data-wow-duration="1s" data-wow-delay="1s" style="margin: 0; display: block;">
-	<div class="container">
-		<div class="row texto-blanco" style="margin-top:70px">
-			<div class="col l6 s12">
-				<h4>Enterate de todas las novedades primero</h4>
-				<p>Mantente en contacto</p>
-				<div class="divider"></div>
-				<div class="input-field s12">
-					<i class="ion-email prefix"></i>
-		            <input style="color:white" id="icon_prefix" type="email" class="validate">
-		            <label for="icon_prefix">Email</label>
-		            <a class="waves-effect waves-light btn bg-principal" style="width:100%">Enviar</a>
-	            </div>
-			</div>
-		</div>
+<!-- Modal Video -->
+<div id="modal2" class="modal bg-negro">
+	<div class="modal-content">
+		<div class="video-container">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/2XdwF5V8zwQ" frameborder="0" allowfullscreen></iframe>
+		</div> 
 	</div>
-    <div class="parallax">
-  		<img src="images/mapa-2.jpg" >
-  	</div>
+	<div class="modal-footer transparent">
+		<a class="modal-action modal-close btn-large btn-floating waves-effect waves-light bg-principal cerrar-video">	
+			<i class="ion-ios-close-empty"></i>
+		</a>
+	</div>
 </div>

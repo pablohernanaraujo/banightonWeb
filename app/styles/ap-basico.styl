@@ -50,6 +50,13 @@ body
 .bg-blanco
 	background-color blanco !important
 	
+.bg-negro
+	background-color negro !important
+	
+.bg-segundario
+	background-color #0d0b0d !important
+	margin 0
+	
 .bg-rojo
 	background-color alpha(rojo,80%)
 	
@@ -94,6 +101,46 @@ a[href^="https://maps.google.com/maps"]
 
 .gmnoprint div 
 	background none !important
+	
+.intrusivo
+	width 100%
+	height 100%
+	background-color alpha(negro,90%)
+	z-index 1100
+	position fixed
+	top 0px
+	opacity 1
+	tra(1s)
+	
+.textoIntrusivo 
+	max-width 500px
+	margin 0 auto
+	padding-top 200px
+	
+	& p 
+		font-size 30px
+		color blanco
+		text-align center
+		margin 0
+		
+	& span 
+		color principal
+	
+	& a 
+		width 100%
+		margin-top 50px
+	
+#btnIntrusivo
+	transition  .4s opacity ease-out, .4s left ease-out
+	position absolute
+	top 20px
+	right 20px
+	opacity  1
+	
+	& i 
+		color negro
+		font-size 30px
+	
 
 	
 /* BASICO FINAL */

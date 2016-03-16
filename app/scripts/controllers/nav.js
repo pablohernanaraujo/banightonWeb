@@ -112,4 +112,11 @@ angular.module('webApp')
         }
     });   
 
+    $scope.intrusivoCerrar = function(){
+      $('.intrusivo').css({'opacity':'0'});
+      setTimeout(function(){
+        $('.intrusivo').css({'display':'none'});
+      }, 1000);
+    };
+
   });

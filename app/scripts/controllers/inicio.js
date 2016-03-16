@@ -5,6 +5,10 @@ angular.module('webApp')
   	
     $rootScope.PAGE = 'inicio';
 
+    $scope.abrirModalVideo = function(){
+      $('#modal2').openModal();
+    };
+
     $( document ).ready(function() {
       var ancho = $( window ).width();
 

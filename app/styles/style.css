@@ -60,6 +60,13 @@ body {
 .bg-blanco {
   background-color: #fff !important;
 }
+.bg-negro {
+  background-color: #000 !important;
+}
+.bg-segundario {
+  background-color: #0d0b0d !important;
+  margin: 0;
+}
 .bg-rojo {
   background-color: rgba(242,86,72,0.8);
 }
@@ -111,6 +118,49 @@ a[href^="https://maps.google.com/maps"] {
 }
 .gmnoprint div {
   background: none !important;
+}
+.intrusivo {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 1100;
+  position: fixed;
+  top: 0px;
+  opacity: 1;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+.textoIntrusivo {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+.textoIntrusivo p {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+.textoIntrusivo span {
+  color: #00aeef;
+}
+.textoIntrusivo a {
+  width: 100%;
+  margin-top: 50px;
+}
+#btnIntrusivo {
+  transition: 0.4s opacity ease-out, 0.4s left ease-out;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 1;
+}
+#btnIntrusivo i {
+  color: #000;
+  font-size: 30px;
 }
 #logo {
   position: absolute;
@@ -292,7 +342,27 @@ a[href^="https://maps.google.com/maps"] {
 .separador {
   margin: 10px;
 }
-INICIO */,
+.contenedorPropa {
+  position: absolute;
+  max-width: 500px;
+  font-size: 40px;
+  color: #fff;
+  top: 200px;
+  left: 15%;
+  font-weight: 300;
+}
+.contenedorPropa span {
+  font-size: 60px;
+}
+.contenedorPropa i {
+  font-size: 60px;
+}
+.contenedorPropa a {
+  margin-top: 25px;
+}
+.contenedorPropa a:hover {
+  background-color: rgba(0,174,239,0.8);
+}
 .triangulo1 {
   width: 100%;
   height: 0;
@@ -346,95 +416,61 @@ INICIO */,
 .logosContenedor img {
   padding: 0 5px;
 }
-.st1 {
-  overflow: hidden;
+.promosContenedor {
+  padding-top: 70px;
+}
+.promo {
+  padding: 0 10px;
+  color: #fff;
+}
+.promo i {
+  font-size: 110px;
+  color: rgba(0,174,239,0.9);
+  margin-bottom: 30px;
+}
+.promo span {
+  font-size: 30px;
   display: block;
-  margin: 0;
+  font-weight: 300;
+}
+.promo p {
+  font-size: 20px;
+  font-weight: 200;
+}
+.st1 {
+  padding: 120px 0;
 }
 .st1 img {
-  display: block;
-  z-index: 10;
-  position: relative;
+  margin-top: 30px;
 }
 .st1 .texto {
   color: #fff;
-  margin-top: 250px;
-  z-index: 10;
-  position: relative;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 .st1 h2 {
   font-weight: bold;
 }
 .st1 h5 {
-  font-weight: 300;
+  font-weight: 200;
+}
+.st1 p {
+  font-size: 25px;
 }
 .st1 .divider {
-  width: 390px;
+  width: 300px;
   height: 2px;
   background-color: #000;
   border-bottom: 1px solid #1a1a1a;
 }
-.st2 {
-  overflow: hidden;
-  display: block;
-  margin: 0;
+.serv {
+  padding: 100px 0 80px;
 }
-.st2 img {
-  display: block;
-  z-index: 10;
-  position: relative;
+.serv .section h5 {
+  font-size: 50px;
 }
-.st2 .texto {
-  color: #fff;
-  margin-top: 250px;
-  z-index: 10;
-  position: relative;
-}
-.st2 h2 {
-  font-weight: bold;
-}
-.st2 h5 {
-  font-weight: 300;
-}
-.st2 .divider {
-  width: 520px;
-  height: 2px;
-  background-color: #000;
-  border-bottom: 1px solid #1a1a1a;
-}
-.st3 {
-  overflow: hidden;
-  display: block;
-  margin: 0;
-}
-.st3 img {
-  display: block;
-  z-index: 10;
-  position: relative;
-}
-.st3 .texto {
-  color: #fff;
-  margin-top: 250px;
-  z-index: 10;
-  position: relative;
-}
-.st3 h2 {
-  font-weight: bold;
-}
-.st3 h5 {
-  font-weight: 300;
-}
-.st3 .icono-fondo {
-  position: absolute;
-  font-size: 900px;
-  left: -30px;
-  margin-top: -300px;
-}
-.st3 .divider {
-  width: 430px;
-  height: 2px;
-  background-color: #000;
-  border-bottom: 1px solid #1a1a1a;
+.serv .section p {
+  font-size: 25px;
 }
 .circulos {
   border-radius: 50%;
@@ -460,6 +496,36 @@ INICIO */,
 }
 .socials a:hover {
   background-color: rgba(0,174,239,0.5);
+}
+.cerrar-video {
+  right: 10px;
+  bottom: 10px;
+}
+.cerrar-video i {
+  font-size: 40px;
+}
+.bgvideo {
+  width: 100%;
+}
+.push-titulo {
+  padding: 100px 0;
+  color: #000;
+}
+.push-titulo h5 {
+  font-size: 50px;
+  margin-top: 100px;
+}
+.push-titulo p {
+  font-size: 25px;
+  color: rgba(0,0,0,0.7);
+}
+.push-titulo .btn-push {
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+}
+.push-titulo .btn-push a {
+  float: right;
 }
 @media screen and (max-width: 800px) {
   .navegador .tactil {
