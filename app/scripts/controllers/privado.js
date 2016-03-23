@@ -10,10 +10,28 @@ angular.module('webApp')
       var obj = $firebaseObject(ref.child('user'));
       
       obj.$bindTo($scope, 'client').then(function() {
-        console.log($scope.client.firstname);
+        //console.log($scope.client.places);
 
         $rootScope.PAGE = $scope.client.firstname; 
+
+        $scope.cuantosTengo = $scope.client.places[0].music.length;
+
+        angular.forEach($scope.client.places[0].music, function(){
+          $scope.masEstilos();
+          //console.log('hola');
+        }); 
       });
+
+      $scope.cantidad = 0;
+
+      $scope.estilos = [];
+
+      $scope.masEstilos = function(){
+        $scope.estilos.push({
+          cantidad: $scope.cantidad
+        });
+        $scope.cantidad ++;
+      };
     });
 
   	$('#ingresar').closeModal();
@@ -21,11 +39,12 @@ angular.module('webApp')
   	$rootScope.btn = true;
 
   	$( document ).ready(function() {
+
       $('.collapsible').collapsible({
         accordion : false 
       });
+
       Map.init();
-      //$('select').material_select();
 
       var ancho = $( window ).width();
 
@@ -87,9 +106,9 @@ angular.module('webApp')
         .then(
             function(res) { // success
                 Map.addMarker(res);
-                $scope.client.boliches.a.address = res.name;
-                $scope.client.boliches.a.latitude = res.geometry.location.lat();
-                $scope.client.boliches.a.longitude= res.geometry.location.lng();
+                $scope.client.places[0].address = res.name;
+                $scope.client.places[0].latitude = res.geometry.location.lat();
+                $scope.client.places[0].longitude= res.geometry.location.lng();
             },
             function(status) { // error
                 $scope.apiError = true;
@@ -97,5 +116,4 @@ angular.module('webApp')
             }
         );
     };
-  	
   });

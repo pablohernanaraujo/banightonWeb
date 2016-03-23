@@ -1,8 +1,12 @@
-<video autoplay loop class="bgvideo" id="bgvideo">
+<video ng-show="verVideo" autoplay loop class="bgvideo" id="bgvideo"  poster="/images/poster-1600.jpg">
 	<source src="videos/banighton1080.mp4" type="video/mp4">
 	<source src="videos/banighton1080.ogv" type="video/ogv">
 	<source src="videos/banighton1080.webm" type="video/webm">
 </video>
+
+<div ng-show="!verVideo" class="row" style="overflow-x:hidden;position: relative;margin: 0;padding: 0">
+  <img ng-src="{{imagenInicio}}" alt="" width="100%">
+</div>
 
 <div class="contenedorPropa">
     <div class="wow bounceInLeft" data-wow-duration="1s" data-wow-delay="1s">la <span>Guia</span> de la</div>
@@ -133,7 +137,7 @@
 				    </div>
 				    <div class="card-content">
 						<span class="card-title activator grey-text text-darken-4">Push<i class="ion-more right"></i></span>
-						<p><a href="#">Ver detallado</a></p>
+						<p><a href="#/servicios">Ver detallado</a></p>
 				    </div>
 				    <div class="card-reveal">
 						<span class="card-title grey-text text-darken-4">Push<i class="ion-close-round right"></i></span>
@@ -154,7 +158,7 @@
 				    </div>
 				    <div class="card-content">
 						<span class="card-title activator grey-text text-darken-4">Mailing<i class="ion-more right"></i></span>
-						<p><a href="#">Ver detallado</a></p>
+						<p><a href="#/servicios">Ver detallado</a></p>
 				    </div>
 				    <div class="card-reveal">
 						<span class="card-title grey-text text-darken-4">Mailing<i class="ion-close-round right"></i></span>

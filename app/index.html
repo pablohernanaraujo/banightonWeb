@@ -179,7 +179,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="intrusivo" ng-controller="NavCtrl">
       <div id="btnIntrusivo" class="left btnCerrar wow fadeIn" data-wow-duration="1s" data-wow-delay="2s">
         <a class="btn-floating btn-large waves-effect waves-light bg-principal" ng-click="intrusivoCerrar()">
@@ -190,7 +190,9 @@
         <p class="wow fadeInDown" data-wow-duration="1s" >Todavía no formas parte</p>
         <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">de la comunidad <span>banighton</span> registra</p>
         <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay="1s">tu bar o disco.</p>
-        <a class="waves-effect waves-light btn btn-large bg-principal wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.5s" ui-sref="clientes" ng-click="intrusivoCerrar()">Resgistrate</a>
+        <div class="btn-intrusivo">
+          <a class="waves-effect waves-light btn btn-large bg-principal wow fadeInUp" data-wow-duration="1s" data-wow-delay="1.5s" ui-sref="clientes" ng-click="intrusivoCerrar()">Resgistrate</a>
+        </div>
       </div>
       
     </div>
@@ -222,6 +224,8 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/ng-file-model/ng-file-model.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

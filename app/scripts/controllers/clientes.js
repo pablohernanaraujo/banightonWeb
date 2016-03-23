@@ -4,6 +4,7 @@ angular.module('webApp')
   .controller('ClientesCtrl', function ($scope, $rootScope, Authentication) {
 
   	$rootScope.PAGE = 'clientes';
+    $rootScope.message = '';
 
   	$( document ).ready(function() {
       var ancho = $( window ).width();

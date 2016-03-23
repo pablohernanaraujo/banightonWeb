@@ -24,7 +24,7 @@
 			        </div>
 			    </li>
 			    <li>
-			        <div class="collapsible-header"><i class="ion-key"></i>Cambiar contraseña</div>
+			        <div class="collapsible-header"><i class="ion-locked"></i>Cambiar contraseña</div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
@@ -55,19 +55,29 @@
 		    </ul>
 		</div>
 
+		<div style="clear: both;"></div>
+
 		<div class="col s12 m12 l4">
 			<div class="section">
 			    <h5>Mas discos</h5>
 			    <p>Aca seleccionas para agregar mas discos</p>
 			</div>
 		</div>
-		<div class="col s12 m12 l6" style="min-height: 150px">
+		<div ng-show="client.places[0].lugarNombre" class="col s12 m12 l6">
 			<div class="container">
-				<div class="input-field">
-				   
+				<div class="input-field col s12">
+				    
+					<form action="#">
+					    <p ng-repeat="lugar in client.places">
+					        <input name="group1" type="radio" id="test1" checked />
+					        <label for="test1">{{client.places[0].lugarNombre}}</label>
+					    </p>
+					</form>
 				</div>
 			</div>
 		</div>
+
+		<div style="clear: both;"></div>
 
 		<div class="col s12 m12 l4">
 			<div class="section">
@@ -80,23 +90,35 @@
 			<ul class="collapsible popout" data-collapsible="accordion">
 			    <li>
 			        <div class="collapsible-header">
-			        	<i class="ion-android-done-all"></i>{{client.client}}
+			        	<i class="ion-android-done-all"></i>{{client.client | capitalize}}
 			        </div>
 			        <div class="collapsible-body">
 			        	
+						<p>
+					        <input ng-model="client.client" type="checkbox" id="disco" ng-true-value="'disco'" ng-false-value="''" >
+					        <label for="disco">Disco</label>
+				    	</p>
+
+					
+						<p>
+					        <input ng-model="client.client" type="checkbox" id="bar" ng-true-value="'bar'" ng-false-value="''" >
+					        <label for="bar">Bar</label>
+					    </p>
+					
 			        </div>
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
-			        	<i class="ion-disc"></i>{{client.boliches.a.bolicheName}}
-			        	<span ng-show="client.boliches.a.bolicheName">{{client.boliches.a.bolicheName}}</span>
-			        	<span ng-show="!client.boliches.a.bolicheName">Ingrese nombre disco</span>
+			        	<i ng-show="client.client == 'disco'" class="ion-disc"></i>
+			        	<i ng-show="client.client == 'bar'" class="ion-android-bar"></i>
+			        	<span ng-show="client.places[0].lugarNombre">{{client.places[0].lugarNombre}}</span>
+			        	<span ng-show="!client.places[0].lugarNombre">Ingrese nombre del lugar</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="bolicheName" type="text" ng-model="client.boliches.a.bolicheName" >
-				      			<label ng-class="{active: client.boliches.a.bolicheName}" for="bolicheName">Disco Nombre</label>
+								<input id="lugarNombre" type="text" ng-model="client.places[0].lugarNombre" >
+				      			<label ng-class="{active: client.places[0].lugarNombre}" for="lugarNombre">Nombre del lugar</label>
 							</div>
 			        	</div>
 			        </div>
@@ -104,8 +126,8 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-ios-location"></i>
-			        	<span ng-show="client.boliches.a.address">{{client.boliches.a.address}}</span>
-			        	<span ng-show="!client.boliches.a.address">Ingrese una dirección</span>
+			        	<span ng-show="client.places[0].address">{{client.places[0].address}}</span>
+			        	<span ng-show="!client.places[0].address">Ingrese una dirección</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
@@ -118,21 +140,21 @@
 							</div>
 							<div class="input-field">
 								<div class="section">
-								    <h5>{{client.boliches.a.address}}</h5>
-								    <p ng-show="client.boliches.a.address">Si la direccion es correcta ya quedo guardado,&nbsp; en caso contrario genere una nueva busqueda.</p>
-								    <p ng-show="!client.boliches.a.address">Busque su direccion.</p>
+								    <h5>{{client.places[0].address}}</h5>
+								    <p ng-show="client.places[0].address">Si la direccion es correcta ya quedo guardado,&nbsp; en caso contrario genere una nueva busqueda.</p>
+								    <p ng-show="!client.places[0].address">Busque su direccion.</p>
 								</div>
 							</div>
 			        		<div class="input-field hide">
-								<input  id="address" type="text" data-ng-model="client.boliches.a.address" disabled>
+								<input  id="address" type="text" data-ng-model="client.places[0].address" disabled>
 				      			<label class="active" for="address">Dirección</label>
 							</div>
 							<div class="input-field hide">
-								<input  id="latitude" type="text" ng-value="latitude" data-ng-model="client.boliches.a.latitude" disabled>
+								<input  id="latitude" type="text" ng-value="latitude" data-ng-model="client.places[0].latitude" disabled>
 				      			<label class="active" for="latitude">Latitud</label>
 							</div>
 							<div class="input-field hide">
-								<input  id="longitude" type="text" ng-value="longitude" data-ng-model="client.boliches.a.longitude" disabled>
+								<input  id="longitude" type="text" ng-value="longitude" data-ng-model="client.places[0].longitude" disabled>
 				      			<label class="active" for="longitude">Longitud</label>
 							</div>
 			        	</div>
@@ -141,43 +163,61 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-call"></i>
-			        	<span ng-show="client.boliches.a.homePhone">{{client.boliches.a.homePhone}}</span>
-			        	<span ng-show="!client.boliches.a.homePhone">Ingrese un telefono</span>
+			        	<span ng-show="client.places[0].telefono">{{client.places[0].telefono}}</span>
+			        	<span ng-show="!client.places[0].telefono">Ingrese un telefono</span>
 			        </div>
 			        <div class="collapsible-body">
+			        	<div class="container">
+			        		<div class="input-field">
+								<input id="tel" type="number" step="1" ng-model="client.places[0].telefono" >
+				      			<label ng-class="{active: client.places[0].telefono}" for="telefono">Sin signos ej: 44885689</label>
+							</div>
+			        	</div>
 			        	
 			        </div>
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-phone-portrait"></i>
-			        	<span ng-show="client.boliches.a.cellPhone">{{client.boliches.a.cellPhone}}</span>
-			        	<span ng-show="!client.boliches.a.cellPhone">Ingrese un celular</span>
+			        	<span ng-show="client.places[0].cellPhone">{{client.places[0].cellPhone}}</span>
+			        	<span ng-show="!client.places[0].cellPhone">Ingrese un celular</span>
 			        </div>
 			        <div class="collapsible-body">
-			        	
+			        	<div class="container">
+			        		<div class="input-field">
+								<input id="cellPhone" type="number" step="1" ng-model="client.places[0].cellPhone" >
+				      			<label ng-class="{active: client.places[0].cellPhone}" for="cellPhone">Sin signos ej: 1130748596</label>
+							</div>
+			        	</div>   	
 			        </div>
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-music-note"></i>
-			        	<span ng-show="client.boliches.a.music.a">{{client.boliches.a.music.a}}</span>
-			        	<span ng-show="!client.boliches.a.music.a">Ingrese estilo de musica</span>
+			        	<span ng-repeat="musica in client.places[0].music">{{musica.estilo | capitalize}}&nbsp;</span>
 			        </div>
 			        <div class="collapsible-body">
-			        	
+			        	<div class="container">
+			        		
+							<a class="waves-effect waves-light btn btnFull bg-principal" ng-click="masEstilos()" style="margin: 10px 0px">Agregar un estilo mas</a>
+							
+							<div class="input-field" ng-repeat="estilo in estilos">
+								<input id="music{{estilo.cantidad}}" type="text" ng-model="client.places[0].music[estilo.cantidad].estilo" >
+				      			<label ng-class="{active: client.places[0].music[estilo.cantidad].estilo}" for="music{{estilo.cantidad}}">Ingrese estilo {{estilo.cantidad}}</label>
+							</div>
+			        	</div>
 			        </div>
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-calendar"></i>
-			        	<span ng-show="client.boliches.a.aniversary">{{client.aniversary}}</span>
-			        	<span ng-show="!client.boliches.a.aniversary">Ingrese su aniversario</span>
+			        	<span ng-show="client.places[0].aniversary">{{client.places[0].aniversary}}</span>
+			        	<span ng-show="!client.places[0].aniversary">Ingrese su aniversario</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container" style="margin-bottom: 20px">
 			        		<div class="input-field">
-								<input placeholder="Ejemplo dd-mm-aaaa" id="aniversary" type="text" ng-model="client.boliches.a.aniversary">
+								<input placeholder="Ejemplo dd-mm-aaaa" id="aniversary" type="text" ng-model="client.places[0].aniversary">
 				      			<label class="active" for="aniversary">Aniversario</label>
 							</div>
 			        	</div>
@@ -186,13 +226,13 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-globe"></i>
-			        	<span ng-show="client.boliches.a.website">{{client.website}}</span>
-			        	<span ng-show="!client.boliches.a.website">Ingrese su website</span>
+			        	<span ng-show="client.places[0].website">{{client.places[0].website}}</span>
+			        	<span ng-show="!client.places[0].website">Ingrese su website</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container" style="margin-bottom: 20px">
 			        		<div class="input-field">
-								<input placeholder="Ejemplo http://ejemplo.com" id="website" type="text" ng-model="client.boliches.a.website" >
+								<input placeholder="Ejemplo http://ejemplo.com" id="website" type="text" ng-model="client.places[0].website" >
 				      			<label class="active" for="website">Website</label>
 							</div>
 			        	</div>
@@ -207,6 +247,35 @@
 			<div class="section">
 			    <h5>Celular</h5>
 			    <p>Aca va a estar el celular mostrando como quedaria todo</p>
+
+		        <div class="lista">
+		        	<div class="listaImagen">
+		        		<img ng-src="{{client.places[0].logo.data}}" alt="">
+		        	</div>
+		        	<div class="listaTexto">
+		        		<div class="listaNombre">
+		        			{{client.places[0].lugarNombre}}
+		        		</div>
+		        		<div class="listaDireccion">
+		        			{{client.places[0].address}}
+		        		</div>
+		        		<div class="listaMusica">
+		        			<span ng-repeat="musica in client.places[0].music">{{musica.estilo | capitalize}}&nbsp;</span>
+		        		</div>
+		        		<div class="listaExtras">
+		        			
+		        			<div class="listaDatos">
+		        				<i class="ion-location"></i>
+		        				<p>0.1km</p>
+		        			</div>
+		        			<div class="listaDatos">
+		        				<i class="ion-star"></i>
+		        				<p>3.5</p>
+		        			</div>
+		        			
+		        		</div>
+		        	</div>
+		        </div>
 			</div>
 		</div>
 		<div class="col s12 m12 l8">
@@ -215,11 +284,15 @@
 			        <div class="collapsible-header"><i class="ion-image"></i>Logo</div>
 			        <div class="collapsible-body">
 			        	<div class="container">
-			        		<div class="input-field">
-								<input id="logo" type="text" 
-								 disabled required>
-				      			<label class="active" for="logo">Logo</label>
-							</div>
+							<div class="file-field input-field">
+						      <div class="btn">
+						        <span>File</span>
+						        <input type="file" ng-file-model="client.places[0].logo">
+						      </div>
+						      <div class="file-path-wrapper">
+						        <input class="file-path validate" type="text">
+						      </div>
+						    </div>
 						</div>
 			        </div>
 			    </li>
@@ -228,8 +301,7 @@
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="textLogo" type="text" 
-								 disabled required>
+								<input id="textLogo" type="text" ng-model="client.places[0].textlogo">
 				      			<label class="active" for="textLogo">Texto logo</label>
 							</div>
 						</div>
@@ -240,9 +312,15 @@
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="image" type="text" 
-								 disabled required>
-				      			<label class="active" for="image">Imagen</label>
+								<div class="file-field input-field">
+							        <div class="btn">
+							            <span>File</span>
+							            <input type="file" ng-file-model="client.places[0].imagen">
+							        </div>
+							        <div class="file-path-wrapper">
+							            <input class="file-path validate" type="text">
+							        </div>
+							    </div>
 							</div>
 						</div>
 			        </div>
@@ -252,8 +330,7 @@
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="textImage" type="text"
-								 disabled required>
+								<input id="textImage" type="text" ng-model="client.places[0].textimage">
 				      			<label class="active" for="textImage">Texto imagen</label>
 							</div>
 						</div>

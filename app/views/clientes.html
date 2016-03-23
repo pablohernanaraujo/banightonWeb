@@ -16,51 +16,88 @@
 
 		<form name="formularioCliente" novalidate>
 
-			<div class="col s12 m12 l2">
+			<div class="col s12">
 				<div class="input-field">
-				    <p style="color:rgba(0,0,0,.5);font-size:14px">Seleccione una opción.</p>
-					<p>
-				        <input ng-model="client.client" type="checkbox" id="disco" ng-true-value="'disco'" ng-false-value="''" >
-				        <label for="disco">Disco</label>
-				    </p>
-				    <p>
-				        <input ng-model="client.client" type="checkbox" id="dj" ng-true-value="'dj'" ng-false-value="''" >
-				        <label for="dj">Dj</label>
-				    </p>
-				</div>
-			</div>
 
+					<div class="col s12">
+						<div class="section center-align">
+						    <h5>Paso 1</h5>
+						    <p class="center-align">Seleccione cual es tu establecimiento</p>
+						</div>
+					</div>
+					
+					<div class="col s6">
+						
+						<p>
+					        <input ng-model="client.client" type="checkbox" id="disco" ng-true-value="'disco'" ng-false-value="''" >
+					        <label for="disco">Disco</label>
+				    	</p>
 
-			<div class="col s12 m12 l5">
-				<div class="input-field">
-					<input id="email" type="email" class="validate" ng-model="client.email" required>
-	      			<label data-error="invalido" for="email">Email</label>
-				</div>
-				
-				
-				<div class="input-field">
-					<input id="firstName" type="text" ng-model="client.firstname" required>
-	      			<label for="firstName">Nombre</label>
-				</div>
-			</div>
-			<div class="col s12 m12 l5">
-				<div class="input-field">
-					<input id="password" type="password" ng-model="client.password" required>
-	      			<label for="password">Contraseña</label>
-				</div>
-				<div class="input-field">
-					<input id="lastName" type="text" ng-model="client.lastname" required>
-	      			<label for="lastName">Apellido</label>
+					</div>
+					<div class="col s6">
+						
+						<p>
+					        <input ng-model="client.client" type="checkbox" id="bar" ng-true-value="'bar'" ng-false-value="''" >
+					        <label for="bar">Bar</label>
+					    </p>
+						
+					</div>
+    
 				</div>
 			</div>
 			
-			<div class="col s12 m5 offset-m7">
+			<div ng-show="client.client" class="col s12 formu-show-hide">
 				
-				<div class="input-field">
-					<button class="btn waves-effect waves-light btnFull bg-principal" ng-click="register(client)" ng-disabled="formularioCliente.$invalid">Registrarse
-				    </button>
+				<div class="col s12">
+					<div class="section center-align">
+					    <h5>Paso 2</h5>
+					    <p class="center-align">Ingrese sus datos</p>
+					</div>
 				</div>
 
+				<div class="col s12">
+					<div class="input-field">
+						<i class="ion-person prefix"></i>
+						<input id="firstName" type="text" ng-model="client.firstname" required>
+		      			<label for="firstName">Nombre</label>
+					</div>
+					<div class="input-field">
+						<i class="ion-person-add prefix"></i>
+						<input id="lastName" type="text" ng-model="client.lastname" required>
+		      			<label for="lastName">Apellido</label>
+					</div>
+				</div>
+
+			</div>
+
+			<div ng-show="client.lastname" class="col s12 formu-show-hide">
+
+				<div class="col s12">
+					<div class="section center-align">
+					    <h5>Paso 3</h5>
+					    <p class="center-align">Solo email y contraseña para terminar</p>
+					</div>
+				</div>
+
+				<div class="col s12 m12">
+					<div class="input-field">
+						<i class="ion-email prefix"></i>
+						<input id="email" type="email" class="validate" ng-model="client.email" required>
+		      			<label data-error="invalido" for="email">Email</label>
+					</div>
+					<div class="input-field">
+						<i class="ion-unlocked prefix"></i>
+						<input id="password" type="password" ng-model="client.password" required>
+		      			<label for="password">Contraseña</label>
+					</div>	
+				</div>
+				
+				<div class="col s12 m5 offset-m7">
+					<div class="input-field">
+						<button class="btn waves-effect waves-light btnFull bg-principal" ng-click="register(client)" ng-disabled="formularioCliente.$invalid">Registrarse
+					    </button>
+					</div>
+				</div>
 			</div>
 			
 		</form>

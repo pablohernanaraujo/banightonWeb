@@ -14,20 +14,24 @@ angular.module('webApp')
 
       var mostrarImagen = function(){
         if(ancho>1280){
-          $scope.imagenInicio = './images/inicio1920.jpg';
+          $scope.imagenInicio = './images/poster-800.jpg';
           $scope.pushiar = false;
+          $scope.verVideo = true;
         }
         if(ancho<=1280){
-          $scope.imagenInicio = './images/inicio1280.jpg';
+          $scope.imagenInicio = './images/poster-800.jpg';
           $scope.pushiar = false;
+          $scope.verVideo = true;
         }
         if(ancho<=800){
-          $scope.imagenInicio = './images/inicio800.jpg';
+          $scope.imagenInicio = './images/poster-800.jpg';
           $scope.pushiar = false;
+          $scope.verVideo = false;
         }
         if(ancho<=600){
-          $scope.imagenInicio = './images/inicio600.jpg';
+          $scope.imagenInicio = './images/poster-600.jpg';
           $scope.pushiar = true;
+          $scope.verVideo = false;
         }
       };
 
@@ -39,26 +43,30 @@ angular.module('webApp')
           
           if(ancho>1280){
             $scope.$apply(function(){
-              $scope.imagenInicio = './images/inicio1920.jpg';
+              $scope.imagenInicio = './images/poster-800.jpg';
               $scope.pushiar = false;
+              $scope.verVideo = true;
             });
         }
         if(ancho<=1280){
             $scope.$apply(function(){
-              $scope.imagenInicio = './images/inicio1280.jpg';
+              $scope.imagenInicio = './images/poster-800.jpg';
               $scope.pushiar = false;
+              $scope.verVideo = true;
             });
         }
         if(ancho<=800){
             $scope.$apply(function(){
-              $scope.imagenInicio = './images/inicio800.jpg';
+              $scope.imagenInicio = './images/poster-800.jpg';
               $scope.pushiar = false;
+              $scope.verVideo = false;
             });
         }
         if(ancho<=600){
             $scope.$apply(function(){
-              $scope.imagenInicio = './images/inicio600.jpg';
+              $scope.imagenInicio = './images/poster-600.jpg';
               $scope.pushiar = true;
+              $scope.verVideo = false;
             });
         }
       });

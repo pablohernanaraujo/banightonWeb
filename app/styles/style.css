@@ -67,6 +67,10 @@ body {
   background-color: #0d0b0d !important;
   margin: 0;
 }
+.bg-terceario {
+  background-color: #e6e6e6 !important;
+  margin: 0;
+}
 .bg-rojo {
   background-color: rgba(242,86,72,0.8);
 }
@@ -134,7 +138,7 @@ a[href^="https://maps.google.com/maps"] {
   transition: all 1s;
 }
 .textoIntrusivo {
-  max-width: 500px;
+  width: 60%;
   margin: 0 auto;
   padding-top: 200px;
 }
@@ -147,9 +151,9 @@ a[href^="https://maps.google.com/maps"] {
 .textoIntrusivo span {
   color: #00aeef;
 }
-.textoIntrusivo a {
-  width: 100%;
-  margin-top: 50px;
+.textoIntrusivo .btn-intrusivo {
+  margin: 50px auto 0;
+  width: 180px;
 }
 #btnIntrusivo {
   transition: 0.4s opacity ease-out, 0.4s left ease-out;
@@ -511,6 +515,9 @@ a[href^="https://maps.google.com/maps"] {
   padding: 100px 0;
   color: #000;
 }
+.push-titulo .section {
+  padding: 0 15px;
+}
 .push-titulo h5 {
   font-size: 50px;
   margin-top: 100px;
@@ -527,7 +534,88 @@ a[href^="https://maps.google.com/maps"] {
 .push-titulo .btn-push a {
   float: right;
 }
+.formu-show-hide {
+  padding: 10px;
+  height: 280px;
+}
+.formu-show-hide {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.formu-show-hide.ng-hide {
+  opacity: 0;
+  height: 0;
+}
+.lista {
+  width: 350px;
+  height: 140px;
+  background-color: #151515;
+}
+.lista .listaImagen {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  float: left;
+}
+.lista .listaImagen img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.lista .listaTexto {
+  width: 250px;
+  height: 100px;
+  padding: 10px;
+  float: left;
+}
+.lista .listaTexto .listaNombre {
+  width: 100%;
+  color: #00aeef;
+  font-size: 20px;
+}
+.lista .listaTexto .listaDireccion {
+  width: 100%;
+  color: #fff;
+}
+.lista .listaTexto .listaMusica {
+  width: 100%;
+  color: rgba(255,255,255,0.5);
+}
+.lista .listaTexto .listaExtras {
+  width: 100%;
+}
+.lista .listaTexto .listaExtras .listaDatos {
+  min-width: 30px;
+  float: right;
+  margin: 10px;
+}
+.lista .listaTexto .listaExtras .listaDatos i {
+  color: #00aeef;
+  font-size: 30px;
+  float: left;
+  margin-right: 5px;
+}
+.lista .listaTexto .listaExtras .listaDatos p {
+  color: #fff;
+  font-size: 15px;
+  float: left;
+}
 @media screen and (max-width: 800px) {
+  .textoIntrusivo {
+    width: 80%;
+  }
+  .contenedorPropa {
+    max-width: 500px;
+    font-size: 40px;
+    left: 10%;
+    top: 150px;
+  }
+  .contenedorPropa span {
+    font-size: 60px;
+  }
+  .contenedorPropa a {
+    margin-top: 20px;
+  }
   .navegador .tactil {
     top: 10px;
     right: 70px;
@@ -535,10 +623,6 @@ a[href^="https://maps.google.com/maps"] {
   #btnIngresar {
     top: 10px;
     right: 10px;
-  }
-  #logo {
-    top: 5px;
-    left: 10px;
   }
   .propaContenedor {
     top: 220px;
@@ -548,15 +632,24 @@ a[href^="https://maps.google.com/maps"] {
   }
 }
 @media screen and (max-width: 600px) {
+  .contenedorPropa {
+    max-width: 500px;
+    font-size: 30px;
+    left: 10%;
+    top: 70px;
+  }
+  .contenedorPropa span {
+    font-size: 45px;
+  }
+  .contenedorPropa a {
+    margin-top: 15px;
+  }
   #logo {
-    left: 0px;
+    top: 10px;
+    left: 10px;
   }
   #logo img {
-    width: 55px;
-  }
-  #logo .bno {
-    font-size: 40px;
-    margin-left: 5px;
+    width: 230px;
   }
   .propaContenedor {
     top: 90px;
@@ -573,19 +666,11 @@ a[href^="https://maps.google.com/maps"] {
   .propaContenedor a {
     margin-top: 30px;
   }
+  .textoIntrusivo {
+    padding-top: 100px;
+  }
 }
 @media screen and (max-width: 350px) {
-  #logo {
-    top: 12px;
-  }
-  #logo img {
-    width: 50px;
-  }
-  #logo .bno {
-    font-size: 30px;
-    margin-left: 5px;
-    margin-top: 5px;
-  }
   .propaContenedor {
     top: 85px;
   }
@@ -600,7 +685,6 @@ a[href^="https://maps.google.com/maps"] {
 }
 /*
 
-@import 'ap-clientes.styl'
 
 @import 'ap-pie.styl'
 

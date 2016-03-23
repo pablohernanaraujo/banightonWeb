@@ -17,6 +17,7 @@ angular
     'ui.router',
     'ngSanitize',
     'ngTouch',
+    'ng-file-model',
     'firebase'
   ])
   .constant('fire',{
