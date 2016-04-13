@@ -8,6 +8,8 @@ angular.module('webApp')
 
     $scope.status = 0;
 
+    $scope.ocultar = false;
+
     $timeout(function() {
     	var ref = new Firebase(fire.clients+'/clients/'+$rootScope.algo);
       var cliente = $firebaseArray(ref);
