@@ -10,6 +10,20 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'dolce_vita_lightsuper_light';
+  src: url("../fonts/dolce_vita_light-webfont.eot");
+  src: url("../fonts/dolce_vita_light-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/dolce_vita_light-webfont.woff2") format('woff2'), url("../fonts/dolce_vita_light-webfont.woff") format('woff'), url("../fonts/dolce_vita_light-webfont.ttf") format('truetype'), url("../fonts/dolce_vita_light-webfont.svg#dolce_vita_lightsuper_light") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'dolce_vitaquite_regular';
+  src: url("../fonts/dolce_vita-webfont.eot");
+  src: url("../fonts/dolce_vita-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/dolce_vita-webfont.woff2") format('woff2'), url("../fonts/dolce_vita-webfont.woff") format('woff'), url("../fonts/dolce_vita-webfont.ttf") format('truetype'), url("../fonts/dolce_vita-webfont.svg#dolce_vitaquite_regular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 @import url("https://fonts.googleapis.com/css?family=Signika:400,700,300");
 html {
   background-color: #0d0b0d;
@@ -546,40 +560,184 @@ a[href^="https://maps.google.com/maps"] {
   opacity: 0;
   height: 0;
 }
+.individualContenedor::-webkit-scrollbar {
+  width: 0px;
+}
+.individualContenedor::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+  -webkit-border-radius: 6px;
+}
+#tab2 {
+  overflow: hidden;
+  position: relative;
+}
+.individualContenedor {
+  width: 250px;
+  height: 402px;
+  position: absolute;
+  margin-top: -476px;
+  margin-left: 24px;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: #0f0f0f;
+}
+.individual {
+  width: 250px;
+  min-height: 107px;
+}
+.individual .indiLogo {
+  width: 60px;
+  min-height: 70px;
+  padding: 5px 12px;
+  float: left;
+}
+.individual .indiLogo img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.individual .indiTextoLogo {
+  width: 175px;
+  min-height: 70px;
+  padding: 5px 0px;
+  float: left;
+  font-family: 'dolce_vitaquite_regular';
+}
+.individual .indiTextoLogo .indiTextoLogoNombre {
+  width: 100%;
+  color: #00aeef;
+  font-size: 15px;
+}
+.individual .indiTextoLogo .indiTextoLogoDireccion {
+  width: 100%;
+  color: #fff;
+  font-size: 12px;
+}
+.individual .indiTextoLogo .indiTextoLogoText {
+  width: 100%;
+  color: #fff;
+  font-size: 12px;
+}
+.individual .indiImagen {
+  width: 222px;
+  min-height: 90px;
+  float: left;
+  margin-left: 15px;
+}
+.individual .indiImagen img {
+  width: 222px;
+}
+.individual .indiTextoImagen {
+  width: 222px;
+  min-height: 20px;
+  padding: 5px 0px;
+  margin-left: 15px;
+  float: left;
+  font-family: 'dolce_vitaquite_regular';
+}
+.individual .indiTextoImagen .indiTextoImagenText {
+  color: #fff;
+  font-size: 12px;
+}
+.individual .indiTextoImagen .indiExtras {
+  width: 100%;
+}
+.individual .indiTextoImagen .indiExtras .indiExtrasDatos {
+  min-width: 20px;
+  float: right;
+  margin: 8px 0px 0px 18px;
+}
+.individual .indiTextoImagen .indiExtras .indiExtrasDatos i {
+  color: #00aeef;
+  font-size: 23px;
+  float: left;
+  margin-right: 5px;
+}
+.individual .indiTextoImagen .indiExtras .indiExtrasDatos p {
+  color: #fff;
+  font-size: 12px;
+  float: left;
+}
+.individual .indiDatos {
+  width: 222px;
+  min-height: 20px;
+  margin-left: 15px;
+  float: left;
+  font-family: 'dolce_vitaquite_regular';
+  color: #fff;
+}
+.individual .indiDatos i {
+  padding: 0 5px;
+}
+.individual .indiDatos span {
+  font-size: 13px;
+}
+.individual .indiDatos .indiDatosCel {
+  width: 50%;
+  float: left;
+}
+.individual .indiDatos .indiDatosCel span {
+  font-size: 15px;
+}
+.individual .indiDatos .indiDatosTel {
+  width: 50%;
+  float: left;
+}
+.individual .indiDatos .indiDatosTel span {
+  font-size: 15px;
+}
+.individual .indiDatosBtn {
+  color: #00aeef;
+  width: 100%;
+}
+.individual .indiDatosBtn p {
+  float: left;
+  width: 33%;
+  text-align: center;
+  font-size: 25px;
+  margin: 0;
+  padding: 10px;
+}
 .lista {
-  width: 350px;
-  height: 140px;
-  background-color: #151515;
+  width: 262px;
+  height: 107px;
+  background-color: #0f0f0f;
+  position: absolute;
+  margin-top: -472px;
+  margin-left: 18px;
 }
 .lista .listaImagen {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 90px;
   padding: 10px;
   float: left;
 }
 .lista .listaImagen img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 .lista .listaTexto {
-  width: 250px;
+  width: 182px;
   height: 100px;
   padding: 10px;
   float: left;
+  font-family: 'dolce_vitaquite_regular';
 }
 .lista .listaTexto .listaNombre {
   width: 100%;
   color: #00aeef;
-  font-size: 20px;
+  font-size: 15px;
 }
 .lista .listaTexto .listaDireccion {
   width: 100%;
   color: #fff;
+  font-size: 12px;
 }
 .lista .listaTexto .listaMusica {
   width: 100%;
   color: rgba(255,255,255,0.5);
+  font-size: 10px;
 }
 .lista .listaTexto .listaExtras {
   width: 100%;
@@ -587,18 +745,33 @@ a[href^="https://maps.google.com/maps"] {
 .lista .listaTexto .listaExtras .listaDatos {
   min-width: 30px;
   float: right;
-  margin: 10px;
+  margin: 8px 0px 0px 18px;
 }
 .lista .listaTexto .listaExtras .listaDatos i {
   color: #00aeef;
-  font-size: 30px;
+  font-size: 23px;
   float: left;
   margin-right: 5px;
 }
 .lista .listaTexto .listaExtras .listaDatos p {
   color: #fff;
-  font-size: 15px;
+  font-size: 12px;
   float: left;
+}
+.cambiables {
+  padding: 0 30px;
+}
+.cambiables p {
+  font-size: 18px;
+}
+.cambiables i {
+  font-size: 25px;
+  margin-right: 15px;
+}
+.divisor {
+  background-color: #f00;
+  width: 100%;
+  height: 1px;
 }
 @media screen and (max-width: 800px) {
   .textoIntrusivo {

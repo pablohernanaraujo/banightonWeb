@@ -1,39 +1,186 @@
 /* PRIVADO */
 
+.individualContenedor::-webkit-scrollbar
+    width 0px
+
+.individualContenedor::-webkit-scrollbar-track-piece
+    background-color:transparent
+    -webkit-border-radius 6px
+
+#tab2
+	overflow hidden
+	position relative
+
+.individualContenedor
+	width 250px
+	height 402px
+	position absolute
+	margin-top -476px
+	margin-left 24px
+	overflow scroll
+	overflow-x hidden
+	background-color rgba(15,15,15,1.00)
+	
+.individual
+	width 250px
+	min-height 107px
+	
+	& .indiLogo
+		width 60px
+		min-height 70px
+		padding 5px 12px
+		float left
+		
+		& img 
+			width 35px
+			height 35px
+			border-radius 50%
+			
+	& .indiTextoLogo
+		width 175px
+		min-height 70px
+		padding 5px 0px
+		float left
+		font-family: 'dolce_vitaquite_regular';
+		
+		& .indiTextoLogoNombre
+			width 100%
+			color principal
+			font-size 15px
+			
+			
+		& .indiTextoLogoDireccion
+			width 100%
+			color blanco
+			font-size 12px
+			
+		& .indiTextoLogoText
+			width 100%
+			color blanco
+			font-size 12px
+			
+	& .indiImagen
+		width 222px
+		min-height 90px
+		float left
+		margin-left 15px
+		
+		& img 
+			width 222px
+			
+	& .indiTextoImagen
+		width 222px
+		min-height 20px
+		padding 5px 0px
+		margin-left 15px
+		float left
+		font-family: 'dolce_vitaquite_regular';
+		
+		& .indiTextoImagenText
+			color blanco
+			font-size 12px
+			
+		& .indiExtras
+			width 100%
+			
+			& .indiExtrasDatos
+				min-width 20px
+				float right
+				margin 8px 0px 0px 18px
+				
+				& i 
+					color principal
+					font-size 23px
+					float left
+					margin-right 5px
+					
+				& p 
+					color blanco
+					font-size 12px
+					float left
+			
+	& .indiDatos
+		width 222px
+		min-height 20px
+		margin-left 15px
+		float left
+		font-family: 'dolce_vitaquite_regular';
+		color blanco
+		
+		& i 
+			padding 0 5px
+			
+		& span 
+			font-size 13px
+			
+		& .indiDatosCel 
+			width 50%
+			float left
+			
+			& span 
+				font-size 15px
+				
+		& .indiDatosTel 
+			width 50%
+			float left
+			
+			& span 
+				font-size 15px
+				
+	& .indiDatosBtn
+		color principal
+		width 100%
+		
+		& p 
+			float left
+			width 33%
+			text-align center
+			font-size 25px
+			margin 0
+			padding 10px
+
 .lista
-	width 350px
-	height 140px
-	background-color negro2
+	width 262px
+	height 107px
+	background-color rgba(15,15,15,1.00)
+	position absolute
+	margin-top -472px
+	margin-left 18px
 	
 	& .listaImagen
-		width 100px
-		height 100px
+		width 75px
+		height 90px
 		padding 10px
 		float left
 		
 		& img 
-			width 80px
-			height 80px
+			width 60px
+			height 60px
 			border-radius 50%
 			
+			
 	& .listaTexto
-		width 250px
+		width 182px
 		height 100px
 		padding 10px
 		float left
+		font-family: 'dolce_vitaquite_regular';
 		
 		& .listaNombre
 			width 100%
 			color principal
-			font-size 20px
+			font-size 15px
+			
 			
 		& .listaDireccion
 			width 100%
 			color blanco
+			font-size 12px
 			
 		& .listaMusica
 			width 100%
 			color alpha(blanco,50%)
+			font-size 10px
 			
 		& .listaExtras
 			width 100%
@@ -41,15 +188,30 @@
 			& .listaDatos
 				min-width 30px
 				float right
-				margin 10px
+				margin 8px 0px 0px 18px
 				
 				& i 
 					color principal
-					font-size 30px
+					font-size 23px
 					float left
 					margin-right 5px
 					
 				& p 
 					color blanco
-					font-size 15px
+					font-size 12px
 					float left
+
+.cambiables
+	padding 0 30px
+	
+	& p 
+		font-size 18px
+		
+	& i 
+		font-size 25px
+		margin-right 15px
+		
+.divisor
+	background-color red
+	width 100%
+	height 1px

@@ -59,20 +59,29 @@
 
 		<div class="col s12 m12 l4">
 			<div class="section">
-			    <h5>Mas discos</h5>
-			    <p>Aca seleccionas para agregar mas discos</p>
+			    <h5>Mas Lugaress</h5>
+			    <p>Podes agregar más lugares.</p>
 			</div>
 		</div>
-		<div ng-show="client.places[0].lugarNombre" class="col s12 m12 l6">
+		<div class="col s12 m12 l6" style="padding-bottom: 20px">
 			<div class="container">
-				<div class="input-field col s12">
-				    
-					<form action="#">
-					    <p ng-repeat="lugar in client.places">
-					        <input name="group1" type="radio" id="test1" checked />
-					        <label for="test1">{{client.places[0].lugarNombre}}</label>
-					    </p>
-					</form>
+				<div class="input-field col s8">   
+					
+					<p ng-show="!client.places">Esta zona se abilitara cuando ingrese datos</p>
+
+				    <p ng-repeat="lugar in client.places">
+				        <input type="checkbox" id="checkeado{{$index}}"
+				        ng-model="seleccionado[$index]"  ng-change="cambiarDeLugar($index)"
+				        />
+				        <label for="checkeado{{$index}}">
+				        	<span ng-show="lugar.lugarNombre">{{lugar.lugarNombre}}</span>
+				        	<span ng-show="!lugar.lugarNombre">Nombre nuevo lugar</span>
+				        </label>
+			    	</p>
+					
+				</div>
+				<div ng-show="client.places" class="section col s4" style="padding-top: 30px">
+					<a class="waves-effect waves-light btn" ng-click="modalLugares('abrir')"><i class="ion-plus"></i></a>
 				</div>
 			</div>
 		</div>
@@ -90,35 +99,42 @@
 			<ul class="collapsible popout" data-collapsible="accordion">
 			    <li>
 			        <div class="collapsible-header">
-			        	<i class="ion-android-done-all"></i>{{client.client | capitalize}}
+			        	<i class="ion-android-done-all"></i>
+			        	<span ng-show="client.places[lugares].client">{{client.places[lugares].client | capitalize}}</span>
+			        	<span ng-show="!client.places[lugares].client">Seleccione un lugar</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	
 						<p>
-					        <input ng-model="client.client" type="checkbox" id="disco" ng-true-value="'disco'" ng-false-value="''" >
+					        <input ng-model="client.places[lugares].client" type="checkbox" id="disco" ng-true-value="'disco'" ng-false-value="''" >
 					        <label for="disco">Disco</label>
 				    	</p>
 
 					
 						<p>
-					        <input ng-model="client.client" type="checkbox" id="bar" ng-true-value="'bar'" ng-false-value="''" >
+					        <input ng-model="client.places[lugares].client" type="checkbox" id="bar" ng-true-value="'bar'" ng-false-value="''" >
 					        <label for="bar">Bar</label>
+					    </p>
+
+					    <p ng-show="ocultar">
+					    	<input ng-model="client.places[lugares].status" type="text">
 					    </p>
 					
 			        </div>
 			    </li>
 			    <li>
 			        <div class="collapsible-header">
-			        	<i ng-show="client.client == 'disco'" class="ion-disc"></i>
-			        	<i ng-show="client.client == 'bar'" class="ion-android-bar"></i>
-			        	<span ng-show="client.places[0].lugarNombre">{{client.places[0].lugarNombre}}</span>
-			        	<span ng-show="!client.places[0].lugarNombre">Ingrese nombre del lugar</span>
+			        	<i ng-show="client.places[lugares].client == 'disco'" class="ion-disc"></i>
+			        	<i ng-show="client.places[lugares].client == 'bar'" class="ion-android-bar"></i>
+			        	<i ng-show="!client.places[lugares].client" class="ion-help-circled"></i>
+			        	<span ng-show="client.places[lugares].lugarNombre">{{client.places[lugares].lugarNombre}}</span>
+			        	<span ng-show="!client.places[lugares].lugarNombre">Ingrese nombre del lugar</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="lugarNombre" type="text" ng-model="client.places[0].lugarNombre" >
-				      			<label ng-class="{active: client.places[0].lugarNombre}" for="lugarNombre">Nombre del lugar</label>
+								<input id="lugarNombre" type="text" ng-model="client.places[lugares].lugarNombre" >
+				      			<label ng-class="{active: client.places[lugares].lugarNombre}" for="lugarNombre">Nombre del lugar</label>
 							</div>
 			        	</div>
 			        </div>
@@ -126,8 +142,8 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-ios-location"></i>
-			        	<span ng-show="client.places[0].address">{{client.places[0].address}}</span>
-			        	<span ng-show="!client.places[0].address">Ingrese una dirección</span>
+			        	<span ng-show="client.places[lugares].address">{{client.places[lugares].address}}</span>
+			        	<span ng-show="!client.places[lugares].address">Ingrese una dirección</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
@@ -140,21 +156,21 @@
 							</div>
 							<div class="input-field">
 								<div class="section">
-								    <h5>{{client.places[0].address}}</h5>
-								    <p ng-show="client.places[0].address">Si la direccion es correcta ya quedo guardado,&nbsp; en caso contrario genere una nueva busqueda.</p>
-								    <p ng-show="!client.places[0].address">Busque su direccion.</p>
+								    <h5>{{client.places[lugares].address}}</h5>
+								    <p ng-show="client.places[lugares].address">Si la direccion es correcta ya quedo guardado,&nbsp; en caso contrario genere una nueva busqueda.</p>
+								    <p ng-show="!client.places[lugares].address">Busque su direccion.</p>
 								</div>
 							</div>
 			        		<div class="input-field hide">
-								<input  id="address" type="text" data-ng-model="client.places[0].address" disabled>
+								<input  id="address" type="text" data-ng-model="client.places[lugares].address" disabled>
 				      			<label class="active" for="address">Dirección</label>
 							</div>
 							<div class="input-field hide">
-								<input  id="latitude" type="text" ng-value="latitude" data-ng-model="client.places[0].latitude" disabled>
+								<input  id="latitude" type="text" ng-value="latitude" data-ng-model="client.places[lugares].latitude" disabled>
 				      			<label class="active" for="latitude">Latitud</label>
 							</div>
 							<div class="input-field hide">
-								<input  id="longitude" type="text" ng-value="longitude" data-ng-model="client.places[0].longitude" disabled>
+								<input  id="longitude" type="text" ng-value="longitude" data-ng-model="client.places[lugares].longitude" disabled>
 				      			<label class="active" for="longitude">Longitud</label>
 							</div>
 			        	</div>
@@ -163,14 +179,14 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-call"></i>
-			        	<span ng-show="client.places[0].telefono">{{client.places[0].telefono}}</span>
-			        	<span ng-show="!client.places[0].telefono">Ingrese un telefono</span>
+			        	<span ng-show="client.places[lugares].telefono">{{client.places[lugares].telefono}}</span>
+			        	<span ng-show="!client.places[lugares].telefono">Ingrese un telefono</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="tel" type="number" step="1" ng-model="client.places[0].telefono" >
-				      			<label ng-class="{active: client.places[0].telefono}" for="telefono">Sin signos ej: 44885689</label>
+								<input id="tel" type="number" step="1" ng-model="client.places[lugares].telefono" >
+				      			<label ng-class="{active: client.places[lugares].telefono}" for="telefono">Sin signos ej: 44885689</label>
 							</div>
 			        	</div>
 			        	
@@ -179,14 +195,14 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-phone-portrait"></i>
-			        	<span ng-show="client.places[0].cellPhone">{{client.places[0].cellPhone}}</span>
-			        	<span ng-show="!client.places[0].cellPhone">Ingrese un celular</span>
+			        	<span ng-show="client.places[lugares].cellPhone">{{client.places[lugares].cellPhone}}</span>
+			        	<span ng-show="!client.places[lugares].cellPhone">Ingrese un celular</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
 			        		<div class="input-field">
-								<input id="cellPhone" type="number" step="1" ng-model="client.places[0].cellPhone" >
-				      			<label ng-class="{active: client.places[0].cellPhone}" for="cellPhone">Sin signos ej: 1130748596</label>
+								<input id="cellPhone" type="number" step="1" ng-model="client.places[lugares].cellPhone" >
+				      			<label ng-class="{active: client.places[lugares].cellPhone}" for="cellPhone">Sin signos ej: 1130748596</label>
 							</div>
 			        	</div>   	
 			        </div>
@@ -194,7 +210,8 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-music-note"></i>
-			        	<span ng-repeat="musica in client.places[0].music">{{musica.estilo | capitalize}}&nbsp;</span>
+			        	<span ng-show="client.places[lugares].music" ng-repeat="musica in client.places[lugares].music">{{musica.estilo | capitalize}}&nbsp;</span>
+			        	<span ng-show="!client.places[lugares].music">Ingrese estilos de música</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
@@ -202,8 +219,8 @@
 							<a class="waves-effect waves-light btn btnFull bg-principal" ng-click="masEstilos()" style="margin: 10px 0px">Agregar un estilo mas</a>
 							
 							<div class="input-field" ng-repeat="estilo in estilos">
-								<input id="music{{estilo.cantidad}}" type="text" ng-model="client.places[0].music[estilo.cantidad].estilo" >
-				      			<label ng-class="{active: client.places[0].music[estilo.cantidad].estilo}" for="music{{estilo.cantidad}}">Ingrese estilo {{estilo.cantidad}}</label>
+								<input id="music{{estilo.cantidad}}" type="text" ng-model="client.places[lugares].music[estilo.cantidad].estilo" >
+				      			<label ng-class="{active: client.places[lugares].music[estilo.cantidad].estilo}" for="music{{estilo.cantidad}}">Ingrese estilo {{estilo.cantidad + 1}}</label>
 							</div>
 			        	</div>
 			        </div>
@@ -211,14 +228,14 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-calendar"></i>
-			        	<span ng-show="client.places[0].aniversary">{{client.places[0].aniversary}}</span>
-			        	<span ng-show="!client.places[0].aniversary">Ingrese su aniversario</span>
+			        	<span ng-show="client.places[lugares].aniversary">{{client.places[lugares].aniversary}}</span>
+			        	<span ng-show="!client.places[lugares].aniversary">Ingrese su aniversario</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container" style="margin-bottom: 20px">
 			        		<div class="input-field">
-								<input placeholder="Ejemplo dd-mm-aaaa" id="aniversary" type="text" ng-model="client.places[0].aniversary">
-				      			<label class="active" for="aniversary">Aniversario</label>
+								<input id="aniversary" type="text" ng-model="client.places[lugares].aniversary">
+				      			<label ng-class="{active:client.places[lugares].aniversary}" for="aniversary">dd-mm-aaaa</label>
 							</div>
 			        	</div>
 			        </div>
@@ -226,14 +243,14 @@
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-globe"></i>
-			        	<span ng-show="client.places[0].website">{{client.places[0].website}}</span>
-			        	<span ng-show="!client.places[0].website">Ingrese su website</span>
+			        	<span ng-show="client.places[lugares].website">{{client.places[lugares].website}}</span>
+			        	<span ng-show="!client.places[lugares].website">Ingrese su website</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container" style="margin-bottom: 20px">
 			        		<div class="input-field">
-								<input placeholder="Ejemplo http://ejemplo.com" id="website" type="text" ng-model="client.places[0].website" >
-				      			<label class="active" for="website">Website</label>
+								<input id="website" type="text" ng-model="client.places[lugares].website" >
+				      			<label ng-class="{active: client.places[lugares].website}" for="website">Ejemplo http://ejemplo.com</label>
 							</div>
 			        	</div>
 			        </div>
@@ -245,98 +262,252 @@
 
 		<div class="col s12 m12 l4">
 			<div class="section">
-			    <h5>Celular</h5>
-			    <p>Aca va a estar el celular mostrando como quedaria todo</p>
+			    <h5>Visualizar</h5>
+			    <p>El contenido de como se vería en lista y individual</p>
+			    <div class="row">
+				    <div class="col s12">
+				      <ul class="tabs">
+				        <li class="tab col s3"><a class="active" href="#tab1">Lista</a></li>
+				        <li class="tab col s3"><a href="#tab2">Individual</a></li>
+				      </ul>
+				    </div>
+				    <div id="tab1" class="col s12" style="margin-top: 15px">
+				    	<img src="./images/privadoDisco.png">
 
-		        <div class="lista">
-		        	<div class="listaImagen">
-		        		<img ng-src="{{client.places[0].logo.data}}" alt="">
-		        	</div>
-		        	<div class="listaTexto">
-		        		<div class="listaNombre">
-		        			{{client.places[0].lugarNombre}}
-		        		</div>
-		        		<div class="listaDireccion">
-		        			{{client.places[0].address}}
-		        		</div>
-		        		<div class="listaMusica">
-		        			<span ng-repeat="musica in client.places[0].music">{{musica.estilo | capitalize}}&nbsp;</span>
-		        		</div>
-		        		<div class="listaExtras">
-		        			
-		        			<div class="listaDatos">
-		        				<i class="ion-location"></i>
-		        				<p>0.1km</p>
-		        			</div>
-		        			<div class="listaDatos">
-		        				<i class="ion-star"></i>
-		        				<p>3.5</p>
-		        			</div>
-		        			
-		        		</div>
-		        	</div>
-		        </div>
+				        <div class="lista">
+				        	<div class="listaImagen">
+				        		<img ng-show="client.places[lugares].logo.data" ng-src="{{client.places[lugares].logo.data}}" alt="">
+				        		<img ng-show="!client.places[lugares].logo.data" src="./images/logoPredeterminado.jpg" alt="">
+				        	</div>
+				        	<div class="listaTexto">
+				        		<div class="listaNombre">
+				        			<span ng-show="client.places[lugares].lugarNombre">{{client.places[lugares].lugarNombre | uppercase}}</span>
+				        			<span ng-show="!client.places[lugares].lugarNombre">Nombre del lugar</span>
+				        		</div>
+				        		<div class="listaDireccion">
+				        			<span ng-show="client.places[lugares].address">{{client.places[lugares].address}}</span>
+				        			<span ng-show="!client.places[lugares].address">Dirección</span>
+				        		</div>
+				        		<div class="listaMusica">
+				        			<span ng-show="client.places[lugares].music" ng-repeat="musica in client.places[lugares].music">{{musica.estilo | capitalize}}&nbsp;</span>
+				        			<span ng-show="!client.places[lugares].music">Música</span>
+				        		</div>
+				        		<div class="listaExtras">
+				        			
+				        			<div class="listaDatos">
+				        				<i class="ion-location"></i>
+				        				<p>100 M</p>
+				        			</div>
+				        			<div class="listaDatos">
+				        				<i class="ion-star"></i>
+				        				<p>4.5</p>
+				        			</div>
+
+				        		</div>
+				        	</div>
+				        </div>
+				    </div>
+				    <div id="tab2" class="col s12" style="margin-top: 15px">
+				    	<img src="./images/privadoIndividual.png">
+
+						<div class="individualContenedor">
+							<div class="individual">
+					        	<div class="indiLogo">
+					        		<img ng-show="client.places[lugares].logo.data" ng-src="{{client.places[lugares].logo.data}}" alt="">
+					        		<img ng-show="!client.places[lugares].logo.data" src="./images/logoPredeterminado.jpg" alt="">
+					        	</div>
+
+					        	<div class="indiTextoLogo">
+					        		<div class="indiTextoLogoNombre">
+					        			<span ng-show="client.places[lugares].lugarNombre">{{client.places[lugares].lugarNombre | uppercase}}</span>
+					        			<span ng-show="!client.places[lugares].lugarNombre">Nombre del lugar</span>
+					        		</div>
+					        		<div class="indiTextoLogoDireccion">
+					        			<span ng-show="client.places[lugares].address">{{client.places[lugares].address}}</span>
+					        			<span ng-show="!client.places[lugares].address">Dirección</span>
+					        		</div>
+					        		<div class="indiTextoLogoText">
+					        			<span ng-show="client.places[lugares].textlogo">{{client.places[lugares].textlogo}}</span>
+					        			<span ng-show="!client.places[lugares].textlogo">Dirección</span>
+					        		</div>
+					        	</div>
+
+					        	<div class="indiImagen">
+					        		<img ng-show="client.places[lugares].imagen.data" ng-src="{{client.places[lugares].imagen.data}}" alt="">
+					        		<img ng-show="!client.places[lugares].imagen.data" src="./images/imagenPredeterminado.jpg" alt="">
+					        	</div>
+
+					        	<div class="indiTextoImagen">
+					        		<div class="indiTextoImagenText">
+					        			<span ng-show="client.places[lugares].textimagen">{{client.places[lugares].textimagen}}</span>
+					        			<span ng-show="!client.places[lugares].textimagen">Dirección</span>
+					        		</div>
+					        		<div class="indiExtras">
+					        			
+					        			<div class="indiExtrasDatos">
+					        				<i class="ion-location"></i>
+					        				<p>100 M</p>
+					        			</div>
+					        			<div class="indiExtrasDatos">
+					        				<i class="ion-star"></i>
+					        				<p>4.5</p>
+					        			</div>
+
+					        		</div>
+					        	</div>
+
+					        	<div class="indiDatos">
+					        		<div class="indiDatosMusica">
+					        			<p><i class="ion-music-note"></i>
+											<span ng-show="client.places[lugares].music" ng-repeat="musica in client.places[lugares].music">{{musica.estilo}}&nbsp;</span>
+					        				<span ng-show="!client.places[lugares].music">Música</span>
+					        			</p>
+					        		</div>
+
+					        		<div class="divider"></div>
+				        		
+				        			<div class="indiDatosCel">
+					        			<p><i class="ion-android-phone-portrait"></i>
+											<span ng-show="client.places[lugares].cellPhone">{{client.places[lugares].cellPhone}}</span>
+					        				<span ng-show="!client.places[lugares].cellPhone">Celular</span>
+					        			</p>
+					        		</div>
+
+					        		<div class="indiDatosTel">
+					        			<p><i class="ion-android-call"></i>
+											<span ng-show="client.places[lugares].telefono">{{client.places[lugares].telefono}}</span>
+					        				<span ng-show="!client.places[lugares].telefono">Telefono</span>
+					        			</p>
+					        		</div>			        	
+									
+									<div style="clear: both;"></div>
+					        		<div class="divider"></div>
+
+					        		<div class="indiDatosAni">
+					        			<p><i class="ion-calendar"></i>
+											<span ng-show="client.places[lugares].aniversary">{{client.places[lugares].aniversary}}</span>
+					        				<span ng-show="!client.places[lugares].aniversary">Aniversario</span>
+					        			</p>
+					        		</div>
+
+					        		<div class="divider"></div>
+
+					        		<div class="indiDatosWeb">
+					        			<p><i class="ion-earth"></i>
+											<span ng-show="client.places[lugares].website">{{client.places[lugares].website}}</span>
+					        				<span ng-show="!client.places[lugares].website">Página Web</span>
+					        			</p>
+					        		</div>
+
+					        		<div class="indiDatosBtn">
+					        			<p><i class="ion-ios-star"></i></p>
+					        			<p><i class="ion-heart"></i></p>
+					        			<p><i class="ion-map"></i></p>
+					        		</div>
+
+					        	</div>
+
+					        </div>
+						</div>
+				        
+				    </div>
+				</div>
+				
 			</div>
 		</div>
-		<div class="col s12 m12 l8">
-			<ul class="collapsible popout" data-collapsible="accordion">
-			    <li>
-			        <div class="collapsible-header"><i class="ion-image"></i>Logo</div>
-			        <div class="collapsible-body">
-			        	<div class="container">
-							<div class="file-field input-field">
-						      <div class="btn">
-						        <span>File</span>
-						        <input type="file" ng-file-model="client.places[0].logo">
-						      </div>
-						      <div class="file-path-wrapper">
-						        <input class="file-path validate" type="text">
-						      </div>
-						    </div>
-						</div>
-			        </div>
-			    </li>
-			    <li>
-			        <div class="collapsible-header"><i class="ion-document-text"></i>Texto logo</div>
-			        <div class="collapsible-body">
-			        	<div class="container">
-			        		<div class="input-field">
-								<input id="textLogo" type="text" ng-model="client.places[0].textlogo">
-				      			<label class="active" for="textLogo">Texto logo</label>
-							</div>
-						</div>
-			        </div>
-			    </li>
-			    <li>
-			        <div class="collapsible-header"><i class="ion-image"></i>Imagen</div>
-			        <div class="collapsible-body">
-			        	<div class="container">
-			        		<div class="input-field">
-								<div class="file-field input-field">
-							        <div class="btn">
-							            <span>File</span>
-							            <input type="file" ng-file-model="client.places[0].imagen">
-							        </div>
-							        <div class="file-path-wrapper">
-							            <input class="file-path validate" type="text">
-							        </div>
-							    </div>
-							</div>
-						</div>
-			        </div>
-			    </li>
-			    <li>
-			        <div class="collapsible-header"><i class="ion-document-text"></i>Texto imagen</div>
-			        <div class="collapsible-body">
-			        	<div class="container">
-			        		<div class="input-field">
-								<input id="textImage" type="text" ng-model="client.places[0].textimage">
-				      			<label class="active" for="textImage">Texto imagen</label>
-							</div>
-						</div>
-			        </div>
-			    </li>
-		    </ul>
+		<div class="col s12 m12 l8" style="padding: 35px">
+
+		    <div class="card-panel cambiables">
+				<div class="section">
+				    <p><i class="ion-image"></i>
+						<span ng-show="client.places[lugares].logo.name">{{client.places[lugares].logo.name}}</span>
+						<span ng-show="!client.places[lugares].logo.name">Logo</span>
+				    </p>
+				    <div class="file-field input-field">
+				        <div class="btn">
+				        	<span>File</span>
+				        	<input type="file" ng-file-model="client.places[lugares].logo">
+				        </div>
+				        <div class="file-path-wrapper">
+				        	<input class="file-path validate" type="text">
+				        </div>
+				    </div>
+		  		</div>
+
+		  		<div class="divider"></div>
+
+		  		<div class="section">
+				    <p><i class="ion-document-text"></i>
+						<span ng-show="client.places[lugares].textlogo">{{client.places[lugares].textlogo}}</span>
+						<span ng-show="!client.places[lugares].textlogo">Texto imagen</span>
+				    </p>
+				    <div class="input-field">
+						<input id="textLogo" type="text" ng-model="client.places[lugares].textlogo">
+		      			<label ng-class="{active: client.places[lugares].textlogo}" for="textLogo">Texto logo</label>
+					</div>
+				</div>
+
+				<div class="divider"></div>
+
+				<div class="section">
+				    <p><i class="ion-image"></i>
+						<span ng-show="client.places[lugares].imagen.name">{{client.places[lugares].imagen.name}}</span>
+						<span ng-show="!client.places[lugares].imagen.name">Imagen</span>
+				    </p>
+				    <div class="file-field input-field">
+				        <div class="btn">
+				        	<span>File</span>
+				        	<input type="file" ng-file-model="client.places[lugares].imagen">
+				        </div>
+				        <div class="file-path-wrapper">
+				        	<input class="file-path validate" type="text">
+				        </div>
+				    </div>
+				</div>
+
+				<div class="divider"></div>
+
+				<div class="section">
+				    <p><i class="ion-document-text"></i>
+						<span ng-show="client.places[lugares].textimagen">{{client.places[lugares].textimagen}}</span>
+						<span ng-show="!client.places[lugares].textimagen">Texto imagen</span>
+				    </p>
+				    <div class="input-field">
+						<input id="textimagen" type="text" ng-model="client.places[lugares].textimagen">
+		      			<label ng-class="{active: client.places[lugares].textimagen}" for="textimagen">Texto imagen</label>
+					</div>
+				</div>
+
+		    </div>
 		</div>
 	</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modalLugares" class="modal">
+    <div class="modal-content">
+        <h4>Seleccione un lugar</h4>
+        <p>Usted podrá ingresar todos los lugares que desee, .</p>
+        <div>
+        	
+			<p>
+		        <input ng-model="client.places[places].client" type="checkbox" id="disco1" ng-true-value="'disco'" ng-false-value="''" ng-click="ingresarNuevoLugar()">
+		        <label for="disco1">Disco</label>
+	    	</p>
+
+		
+			<p>
+		        <input ng-model="client.places[places].client" type="checkbox" id="bar1" ng-true-value="'bar'" ng-false-value="''" ng-click="ingresarNuevoLugar()">
+		        <label for="bar1">Bar</label>
+		    </p>
+
+		    <p ng-show="ocultar">
+		    	<input ng-model="client.places[places].status" type="text">
+		    </p>
+		
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class=" modal-action modal-close waves-effect waves-green btn bg-principal" ng-click="modalLugares('cerrar')">Cerrar</a>
+    </div>
 </div>

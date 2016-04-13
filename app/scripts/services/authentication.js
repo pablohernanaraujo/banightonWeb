@@ -68,7 +68,6 @@ angular.module('webApp')
 		  				user:{
 		  					date: Firebase.ServerValue.TIMESTAMP,
 			  				regUser: regUser.uid,
-                            client: user.client,
 			  				firstname: user.firstname,
 			  				lastname: user.lastname,
 			  				email: user.email,

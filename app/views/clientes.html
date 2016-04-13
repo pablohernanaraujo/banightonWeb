@@ -15,42 +15,12 @@
 		</div>
 
 		<form name="formularioCliente" novalidate>
-
-			<div class="col s12">
-				<div class="input-field">
-
-					<div class="col s12">
-						<div class="section center-align">
-						    <h5>Paso 1</h5>
-						    <p class="center-align">Seleccione cual es tu establecimiento</p>
-						</div>
-					</div>
-					
-					<div class="col s6">
-						
-						<p>
-					        <input ng-model="client.client" type="checkbox" id="disco" ng-true-value="'disco'" ng-false-value="''" >
-					        <label for="disco">Disco</label>
-				    	</p>
-
-					</div>
-					<div class="col s6">
-						
-						<p>
-					        <input ng-model="client.client" type="checkbox" id="bar" ng-true-value="'bar'" ng-false-value="''" >
-					        <label for="bar">Bar</label>
-					    </p>
-						
-					</div>
-    
-				</div>
-			</div>
 			
-			<div ng-show="client.client" class="col s12 formu-show-hide">
+			<div class="col s12 formu-show-hide">
 				
 				<div class="col s12">
 					<div class="section center-align">
-					    <h5>Paso 2</h5>
+					    <h5>Paso 1</h5>
 					    <p class="center-align">Ingrese sus datos</p>
 					</div>
 				</div>
@@ -74,7 +44,7 @@
 
 				<div class="col s12">
 					<div class="section center-align">
-					    <h5>Paso 3</h5>
+					    <h5>Paso 2</h5>
 					    <p class="center-align">Solo email y contraseña para terminar</p>
 					</div>
 				</div>

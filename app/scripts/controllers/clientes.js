@@ -56,13 +56,9 @@ angular.module('webApp')
       });
 
       $scope.register = function(client){
-        if(client.client === undefined || client.client === ''){
-            $rootScope.message = 'Debe seleccionar Disco o Dj porfavor.';
-        }
-        if(client.client === 'disco' || client.client === 'dj'){
-            $rootScope.message = '';
-            Authentication.register($scope.client);
-        }
+
+        Authentication.register($scope.client);
+        
       };
 
     });

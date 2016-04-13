@@ -4,6 +4,10 @@ angular.module('webApp')
   .controller('PrivadoCtrl', function ($scope, $rootScope, fire, $firebaseArray, 
     $firebaseObject, $timeout, Map) {
 
+    $scope.lugares = 0;
+
+    $scope.status = 0;
+
     $timeout(function() {
     	var ref = new Firebase(fire.clients+'/clients/'+$rootScope.algo);
       var cliente = $firebaseArray(ref);
@@ -14,12 +18,21 @@ angular.module('webApp')
 
         $rootScope.PAGE = $scope.client.firstname; 
 
-        $scope.cuantosTengo = $scope.client.places[0].music.length;
+        $scope.places = $scope.client.places.length;
+        console.log($scope.places);
 
-        angular.forEach($scope.client.places[0].music, function(){
-          $scope.masEstilos();
-          //console.log('hola');
-        }); 
+        if($scope.client.places[$scope.lugares].music){
+          $scope.cuantosTengo = $scope.client.places[$scope.lugares].music.length;
+
+          angular.forEach($scope.client.places[$scope.lugares].music, function(){
+            $scope.masEstilos();
+          }); 
+        }
+
+        if(!$scope.client.places[$scope.lugares].status){
+          $scope.client.places[$scope.lugares].status = 0;
+        }
+
       });
 
       $scope.cantidad = 0;
@@ -34,11 +47,46 @@ angular.module('webApp')
       };
     });
 
+    $scope.seleccionado = [];
+
+    $scope.seleccionado[0] = true;
+
+    $scope.cambiarDeLugar = function(cam){
+
+      $scope.lugares = cam;
+      console.log($scope.lugares);
+
+      for(var i = 0 ; i < $scope.places ; i++){
+        $scope.seleccionado[i] = false;
+      }
+
+      $scope.seleccionado[cam] = true;
+      
+    };
+
   	$('#ingresar').closeModal();
+
+    $scope.modalLugares = function(que){
+      if(que === 'abrir'){
+        $('#modalLugares').openModal();
+      }
+      if(que === 'cerrar'){
+        $('#modalLugares').closeModal();
+      }
+      
+    };
+
+    $scope.ingresarNuevoLugar = function(){
+      $scope.client.places[$scope.places].status = 0;
+
+      $scope.modalLugares('cerrar');
+    };
 
   	$rootScope.btn = true;
 
   	$( document ).ready(function() {
+
+      $('ul.tabs').tabs();
 
       $('.collapsible').collapsible({
         accordion : false 
@@ -106,9 +154,9 @@ angular.module('webApp')
         .then(
             function(res) { // success
                 Map.addMarker(res);
-                $scope.client.places[0].address = res.name;
-                $scope.client.places[0].latitude = res.geometry.location.lat();
-                $scope.client.places[0].longitude= res.geometry.location.lng();
+                $scope.client.places[$scope.lugares].address = res.name;
+                $scope.client.places[$scope.lugares].latitude = res.geometry.location.lat();
+                $scope.client.places[$scope.lugares].longitude= res.geometry.location.lng();
             },
             function(status) { // error
                 $scope.apiError = true;
