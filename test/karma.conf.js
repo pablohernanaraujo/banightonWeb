@@ -39,6 +39,8 @@ module.exports = function(config) {
       'bower_components/underscore/underscore.js',
       'bower_components/ng-file-model/ng-file-model.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-validation-match/dist/angular-validation-match.min.js',
+      'bower_components/angular-password/angular-password.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",

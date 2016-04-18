@@ -18,7 +18,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ng-file-model',
-    'firebase'
+    'firebase',
+    'validation.match'
   ])
   .constant('fire',{
       'clients' : 'https://clientsbnoapp.firebaseio.com'

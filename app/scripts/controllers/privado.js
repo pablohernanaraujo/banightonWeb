@@ -16,12 +16,10 @@ angular.module('webApp')
       var obj = $firebaseObject(ref.child('user'));
       
       obj.$bindTo($scope, 'client').then(function() {
-        //console.log($scope.client.places);
 
         $rootScope.PAGE = $scope.client.firstname; 
 
         $scope.places = $scope.client.places.length;
-        console.log($scope.places);
 
         if($scope.client.places[$scope.lugares].music){
           $scope.cuantosTengo = $scope.client.places[$scope.lugares].music.length;

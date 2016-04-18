@@ -40,8 +40,8 @@
 
 			</div>
 
-			<div ng-show="client.lastname" class="col s12 formu-show-hide">
-
+			<!-- <div ng-show="client.lastname" class="col s12 formu-show-hide"> -->
+			<div>
 				<div class="col s12">
 					<div class="section center-align">
 					    <h5>Paso 2</h5>
@@ -57,9 +57,29 @@
 					</div>
 					<div class="input-field">
 						<i class="ion-unlocked prefix"></i>
-						<input id="password" type="password" ng-model="client.password" required>
+						<input id="password" 
+						type="password" 
+						ng-model="client.password"
+						name="passwordName"
+						required
+						/>
 		      			<label for="password">Contraseña</label>
-					</div>	
+					</div>
+
+					<div class="input-field">
+						<i class="ion-locked prefix"></i>
+						<input id="confirmPassword" 
+						type="password" 
+						ng-model="register.confirmPassword" 
+						match="client.password"
+						name="myConfirmField"
+						required
+						/>
+		      			<label for="confirmPassword">Confirmar Contraseña</label>
+					</div>
+
+					<div ng-show="formularioCliente.myConfirmField.$error.match" class="coincidir">Las contraseñas no coinciden!</div>
+
 				</div>
 				
 				<div class="col s12 m5 offset-m7">

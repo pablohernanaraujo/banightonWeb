@@ -548,6 +548,11 @@ a[href^="https://maps.google.com/maps"] {
 .push-titulo .btn-push a {
   float: right;
 }
+.coincidir {
+  color: #f00;
+  font-size: 16px;
+  text-align: center;
+}
 .formu-show-hide {
   padding: 10px;
   height: 280px;
@@ -671,20 +676,6 @@ a[href^="https://maps.google.com/maps"] {
 }
 .individual .indiDatos span {
   font-size: 13px;
-}
-.individual .indiDatos .indiDatosCel {
-  width: 50%;
-  float: left;
-}
-.individual .indiDatos .indiDatosCel span {
-  font-size: 15px;
-}
-.individual .indiDatos .indiDatosTel {
-  width: 50%;
-  float: left;
-}
-.individual .indiDatos .indiDatosTel span {
-  font-size: 15px;
 }
 .individual .indiDatosBtn {
   color: #00aeef;

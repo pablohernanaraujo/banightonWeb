@@ -192,11 +192,28 @@
 			        	
 			        </div>
 			    </li>
+
+			    <li>
+			        <div class="collapsible-header">
+			        	<i class="ion-person"></i>
+			        	<span ng-show="client.places[lugares].rrpp">{{client.places[lugares].rrpp}}</span>
+			        	<span ng-show="!client.places[lugares].rrpp">Ingrese RRPP nombre</span>
+			        </div>
+			        <div class="collapsible-body">
+			        	<div class="container">
+			        		<div class="input-field">
+								<input id="rrpp" type="text" ng-model="client.places[lugares].rrpp" >
+				      			<label ng-class="{active: client.places[lugares].rrpp}" for="rrpp">RRPP nombre</label>
+							</div>
+			        	</div>
+			        	
+			        </div>
+			    </li>
 			    <li>
 			        <div class="collapsible-header">
 			        	<i class="ion-android-phone-portrait"></i>
 			        	<span ng-show="client.places[lugares].cellPhone">{{client.places[lugares].cellPhone}}</span>
-			        	<span ng-show="!client.places[lugares].cellPhone">Ingrese un celular</span>
+			        	<span ng-show="!client.places[lugares].cellPhone">Ingrese RRPP celular</span>
 			        </div>
 			        <div class="collapsible-body">
 			        	<div class="container">
@@ -328,7 +345,7 @@
 					        		</div>
 					        		<div class="indiTextoLogoText">
 					        			<span ng-show="client.places[lugares].textlogo">{{client.places[lugares].textlogo}}</span>
-					        			<span ng-show="!client.places[lugares].textlogo">Dirección</span>
+					        			<span ng-show="!client.places[lugares].textlogo">Texto Logo</span>
 					        		</div>
 					        	</div>
 
@@ -340,7 +357,7 @@
 					        	<div class="indiTextoImagen">
 					        		<div class="indiTextoImagenText">
 					        			<span ng-show="client.places[lugares].textimagen">{{client.places[lugares].textimagen}}</span>
-					        			<span ng-show="!client.places[lugares].textimagen">Dirección</span>
+					        			<span ng-show="!client.places[lugares].textimagen">Texto Imagen</span>
 					        		</div>
 					        		<div class="indiExtras">
 					        			
@@ -366,21 +383,31 @@
 
 					        		<div class="divider"></div>
 				        		
-				        			<div class="indiDatosCel">
-					        			<p><i class="ion-android-phone-portrait"></i>
-											<span ng-show="client.places[lugares].cellPhone">{{client.places[lugares].cellPhone}}</span>
-					        				<span ng-show="!client.places[lugares].cellPhone">Celular</span>
-					        			</p>
-					        		</div>
-
-					        		<div class="indiDatosTel">
+									<div class="indiDatosTel">
 					        			<p><i class="ion-android-call"></i>
 											<span ng-show="client.places[lugares].telefono">{{client.places[lugares].telefono}}</span>
 					        				<span ng-show="!client.places[lugares].telefono">Telefono</span>
 					        			</p>
-					        		</div>			        	
+					        		</div>
+
+					        		<div class="divider"></div>
+
+					        		<div>
+					        			<p><i class="ion-person"></i>
+											<span ng-show="client.places[lugares].rrpp">RRPP {{client.places[lugares].rrpp}}</span>
+					        				<span ng-show="!client.places[lugares].rrpp">RRPP</span>
+					        			</p>
+					        		</div>
+
+					        		<div class="divider"></div>
+
+					        		<div class="indiDatosCel">
+					        			<p><i class="ion-android-phone-portrait"></i>
+											<span ng-show="client.places[lugares].cellPhone">RRPP {{client.places[lugares].cellPhone}}</span>
+					        				<span ng-show="!client.places[lugares].cellPhone">RRPP Celular</span>
+					        			</p>
+					        		</div>	        	
 									
-									<div style="clear: both;"></div>
 					        		<div class="divider"></div>
 
 					        		<div class="indiDatosAni">
@@ -439,7 +466,7 @@
 		  		<div class="section">
 				    <p><i class="ion-document-text"></i>
 						<span ng-show="client.places[lugares].textlogo">{{client.places[lugares].textlogo}}</span>
-						<span ng-show="!client.places[lugares].textlogo">Texto imagen</span>
+						<span ng-show="!client.places[lugares].textlogo">Texto Logo</span>
 				    </p>
 				    <div class="input-field">
 						<input id="textLogo" type="text" ng-model="client.places[lugares].textlogo">
@@ -470,7 +497,7 @@
 				<div class="section">
 				    <p><i class="ion-document-text"></i>
 						<span ng-show="client.places[lugares].textimagen">{{client.places[lugares].textimagen}}</span>
-						<span ng-show="!client.places[lugares].textimagen">Texto imagen</span>
+						<span ng-show="!client.places[lugares].textimagen">Texto Imagen</span>
 				    </p>
 				    <div class="input-field">
 						<input id="textimagen" type="text" ng-model="client.places[lugares].textimagen">
