@@ -164,4 +164,89 @@ angular.module('webApp')
             }
         );
     };
+
+    /* cambiar email */
+
+    $scope.cambioEmailMensaje = 'Conectando...';
+    $scope.cambioPasswordMensaje = 'Conectando...';
+    $scope.LoadingCambioEmailMensaje = false;
+    $scope.LoadingCambioPasswordMensaje = false;
+    var cambiarDatos = new Firebase('https://clientsbnoapp.firebaseio.com/');
+
+    $scope.cambiarEmail = function(change){
+      $scope.LoadingCambioEmailMensaje = true;
+
+      cambiarDatos.changeEmail({
+        oldEmail: change.oldEmail,
+        newEmail: change.newEmail,
+        password: change.password
+      }, function(error) {
+        if (error) {
+          switch (error.code) {
+            case 'INVALID_PASSWORD':
+              $timeout(function() {
+                $scope.cambioEmailMensaje = 'La contraseña es incorrecta.';
+              });
+              break;
+            case 'INVALID_USER':
+              $timeout(function() {
+                $scope.cambioEmailMensaje = 'El usuario no existe.';
+              });
+              
+              console.log($scope.cambioEmailMensaje );
+              break;
+            default:
+              $timeout(function() {
+                $scope.cambioEmailMensaje = 'Error creando usuario:'+ error;
+              });
+          }
+        } else {
+          $timeout(function() {
+            $scope.cambioEmailMensaje = 'Usuario email cambiado con exito!';
+            $scope.client.email = change.newEmail;
+            $scope.change = null;
+          });
+        }
+      });
+    };
+
+    /* cambiar password */
+
+    $scope.cambiarPassword = function(change){
+      $scope.LoadingCambioPasswordMensaje = true;
+      cambiarDatos.changePassword({
+        email: change.passwordEmail,
+        oldPassword: change.passwordOld,
+        newPassword: change.passwordNew
+      }, function(error) {
+        if (error) {
+          switch (error.code) {
+            case 'INVALID_PASSWORD':
+              console.log('The specified user account password is incorrect.');
+              $timeout(function() {
+                $scope.cambioPasswordMensaje = 'La contraseña es incorrecta';
+              });
+              break;
+            case 'INVALID_USER':
+              console.log('The specified user account does not exist.');
+              $timeout(function() {
+                $scope.cambioPasswordMensaje = 'El usuario no existe';
+              });
+              break;
+            default:
+              console.log('Error changing password:', error);
+              $timeout(function() {
+                $scope.cambioPasswordMensaje = 'Error cambiando contraseña' + error;
+              });
+          }
+        } else {
+          console.log('User password changed successfully!');
+          $timeout(function() {
+            $scope.cambioPasswordMensaje = 'Usuario contraseña cambiada con exito!';
+            $scope.change = null;
+            $scope.register = null;
+          });
+        }
+      });
+    };
   });

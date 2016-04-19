@@ -15,11 +15,53 @@
 			        <div class="collapsible-header"><i class="ion-email"></i>Cambiar email</div>
 			        <div class="collapsible-body">
 			        	<div class="container">
-			        		<div class="input-field">
-								<input id="email" type="email" ng-model="client.email" 
-								ng-change="client.$save()" disabled required>
-				      			<label class="active" for="email">Email</label>
-							</div>
+			        		<form name="formularioCambiarEmail">
+
+				        		<div class="input-field">
+									<input id="changeOldEmail" 
+									type="email" 
+									ng-model="change.oldEmail" 
+									required
+									/>
+					      			<label for="changeOldEmail">Email Viejo</label>
+								</div>
+
+								<div class="input-field">
+									<input id="changeNewEmail" 
+									type="email" 
+									ng-model="change.newEmail" 
+									required
+									/>
+					      			<label for="changeNewEmail">Email Nuevo</label>
+								</div>
+
+								<div class="input-field">
+									<input id="changePassword" 
+									type="password" 
+									ng-model="change.password" 
+									required
+									/>
+					      			<label for="changePassword">Contraseña</label>
+								</div>
+
+								<div ng-show="ocultar" class="input-field">
+									<input id="email" 
+									type="email" 
+									ng-model="client.email"
+									ng-change="client.$save()"
+									/>
+					      			<label class="active" for="email">Email</label>
+								</div>
+
+								<div ng-class="{ true:'cambioMensajeExitoso' , false:'cambioMensaje'}[cambioEmailMensaje == 'Usuario email cambiado con exito!']" ng-show="LoadingCambioEmailMensaje">{{cambioEmailMensaje}}</div>
+
+								<button class="waves-effect waves-light btn cambioBtn"
+									ng-click="cambiarEmail(change)" 
+									ng-disabled="formularioCambiarEmail.$invalid">
+									Cambiar Email
+								</button>
+
+							</form>
 						</div>
 			        </div>
 			    </li>
@@ -27,11 +69,57 @@
 			        <div class="collapsible-header"><i class="ion-locked"></i>Cambiar contraseña</div>
 			        <div class="collapsible-body">
 			        	<div class="container">
-			        		<div class="input-field">
-								<input id="password" type="password" ng-model="client.password" 
-								ng-change="client.$save()" disabled required>
-				      			<label class="active" for="password">Contraseña</label>
-							</div>
+			        		<form name="formularioCambiarPassword">
+								
+								<div class="input-field">
+									<input id="changePasswordOld" 
+									type="password" 
+									ng-model="change.passwordOld" 
+									required
+									/>
+					      			<label for="changePasswordOld">Contraseña Vieja</label>
+								</div>
+
+								<div class="input-field">
+									<input id="changePasswordNew" 
+									type="password" 
+									ng-model="change.passwordNew" 
+									name="passwordName"
+									required
+									/>
+					      			<label for="changePasswordNew">Contraseña Nueva</label>
+								</div>
+
+								<div class="input-field">
+									<input id="changePasswordNewConfirm" 
+									type="password" 
+									ng-model="register.changePasswordNewConfirm" 
+									match="change.passwordNew"
+									name="myConfirmField"
+									required
+									/>
+					      			<label for="changePasswordNewConfirm">Confirmar Contraseña Nueva</label>
+								</div>
+
+								<div ng-show="formularioCambiarPassword.myConfirmField.$error.match" class="coincidir">Las contraseñas no coinciden!</div>
+
+								<div class="input-field">
+									<input id="changePasswordEmail" 
+									type="email" 
+									ng-model="change.passwordEmail" 
+									required
+									/>
+					      			<label for="changePasswordEmail">Email</label>
+								</div>
+
+								<div ng-class="{ true:'cambioMensajeExitoso' , false:'cambioMensaje'}[cambioPasswordMensaje == 'Usuario contraseña cambiada con exito!']" ng-show="LoadingCambioPasswordMensaje">{{cambioPasswordMensaje}}</div>
+
+								<button class="waves-effect waves-light btn cambioBtn"
+									ng-click="cambiarPassword(change)" 
+									ng-disabled="formularioCambiarPassword.$invalid">
+									Cambiar Contraseña
+								</button>
+							</form>
 						</div>
 			        </div>
 			    </li>
